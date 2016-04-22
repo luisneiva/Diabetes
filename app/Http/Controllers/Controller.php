@@ -11,4 +11,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+	public function index(){return view('pages.index');}
+	public function register(){return view('pages.registerPage');}
+	public function forgotPass(){return view('pages.forgotPass');}
+
+    public function contact(){return view('pages.contact');}
+
 }
+
+
