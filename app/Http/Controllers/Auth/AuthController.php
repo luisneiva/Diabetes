@@ -52,6 +52,11 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'gender' => 'required|in:male,female',
+            'type' => 'required|in:type1,type2',
+            'treatment' => 'required|in:injection,oral',
+            'weight' => 'required',
+            'reg_agree' => 'required',
         ]);
     }
 
@@ -64,9 +69,14 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'sex' => $data['gender'],
+            'fullname' => $data['fullname'],
+            'treatmenttype' => $data['treatment'],
+            'type' => $data['type'],
+            'weight' => $data['weight'],
         ]);
     }
 }

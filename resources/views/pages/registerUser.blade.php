@@ -15,37 +15,39 @@
     <div class="logo">Register</div>
     <!-- Main Form -->
     <div class="login-form-1">
-        <form id="register-form" class="text-left">
+        <form id="register-form" method="POST" action="{{ url('/store') }}" class="text-left">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+
             <div class="login-form-main-message"></div>
             <div class="main-login-form">
                 <div class="login-group">
                     <div class="form-group">
-                        <label for="reg_username" class="sr-only">Email address</label>
-                        <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="Username">
+                        <label for="username" class="sr-only">Email address</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                     </div>
                     <div class="form-group">
-                        <label for="reg_password" class="sr-only">Password</label>
-                        <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="Password">
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-                        <input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="Confirm Password">
+                        <label for="password_confirm" class="sr-only">Password Confirm</label>
+                        <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirm Password">
                     </div>
 
                     <div class="form-group">
-                        <label for="reg_email" class="sr-only">Email</label>
-                        <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="Email">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <label for="reg_fullname" class="sr-only">Full Name</label>
-                        <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="Full Name">
+                        <label for="fullname" class="sr-only">Full Name</label>
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name">
                     </div>
 
                     <div class="form-group login-group-checkbox">
-                        <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+                        <input type="radio" class="" name="gender" id="male" placeholder="username">
                         <label for="male">Male</label>
 
-                        <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+                        <input type="radio" class="" name="gender" id="female" placeholder="username">
                         <label for="female">Female</label>
                     </div>
 
@@ -53,10 +55,10 @@
 
                         <label for="type">Diabetes:</label>
 
-                        <input type="radio" class="" name="reg_type" id="type1" placeholder="username">
+                        <input type="radio" class="" name="type" id="type1" placeholder="username">
                         <label for="type1">type1</label>
 
-                        <input type="radio" class="" name="reg_type" id="type2" placeholder="username">
+                        <input type="radio" class="" name="type" id="type2" placeholder="username">
                         <label for="type2">type2</label>
                     </div>
 
@@ -64,21 +66,21 @@
 
                         <label for="treatment">Treatment:</label>
 
-                        <input type="radio" class="" name="reg_treatment" id="injection" placeholder="username">
+                        <input type="radio" class="" name="treatment" id="injection" placeholder="username">
                         <label for="injection">injection</label>
 
-                        <input type="radio" class="" name="reg_treatment" id="oral" placeholder="username">
+                        <input type="radio" class="" name="treatment" id="oral" placeholder="username">
                         <label for="oral">oral</label>
                     </div>
 
                     <div class="form-group">
-                        <label for="reg_weight" class="sr-only">Weight</label>
-                        <input type="text" class="form-control" id="reg_weight" name="reg_weight" placeholder="Weight (kg)">
+                        <label for="weight" class="sr-only">Weight</label>
+                        <input type="text" class="form-control" id="weight" name="weight" placeholder="Weight (kg)">
                     </div>
 
                     <div class="form-group login-group-checkbox">
-                        <input type="checkbox" class="" id="reg_agree" name="reg_agree">
-                        <label for="reg_agree">I agree with <a href="#">terms</a></label>
+                        <input type="checkbox" class="" id="agree" name="reg_agree">
+                        <label for="agree">I agree with <a href="#">terms</a></label>
                     </div>
                 </div>
                 <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
@@ -90,3 +92,5 @@
     </div>
     <!-- end:Main Form -->
 </div>
+
+
