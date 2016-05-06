@@ -16,7 +16,17 @@ Route::group(['middlware' => 'auth'], function () {
         return view('welcome');
     });
 });
+// Medico
+    Route::resource('medico', 'MedicoController');
 
+// Bebida
+    Route::resource('bebida', 'BebidaController');
+
+// Alimento
+    Route::resource('alimento', 'AlimentoController');
+
+// Exercicio
+    Route::resource('exercicio', 'ExercicioController');
 
 Route::get('/home', 'HomeController@index');
 
