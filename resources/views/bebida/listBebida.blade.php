@@ -7,9 +7,10 @@
         <thead>
           <tr>
               <th data-field="id">ID</th>
-              <th data-field="id">Quantidade</th>
-              <th data-field="name">Nome</th>
-              <th data-field="price">Qtd Carboidratos</th>
+              <th data-field="id">Nome</th>
+              <th data-field="price"> ( CL )</th>
+              <th data-field="name"> % alcool </th>
+
           </tr>
         </thead>
 
@@ -17,9 +18,9 @@
           @foreach ($bebidas as $bebida)
             <tr class="line">
               <td class="text-center">{{$bebida->id}}</td>
-              <td class="text-center">{{$bebida->qtd}}</td>
               <td class="text-center">{{$bebida->nome}}</td>
-              <td class="text-center">{{$bebida->carboidratos}}</td>
+              <td class="text-center">{{$bebida->qtd}}</td>
+              <td class="text-center">{{$bebida->alcool}}</td>
               <td>
                 {!! Form::open(['route' => array('bebida.destroy', $bebida->id), 'method' => 'delete']) !!}
                 <!-- Show -->

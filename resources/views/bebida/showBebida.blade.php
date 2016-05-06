@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('layouts.app')
 
 @section('content')
 
@@ -8,6 +8,14 @@
 
   <div id="formAtivo">
     {!! Form::open(['route' => ['bebida.update', $bebida->id], 'method' => 'PUT']) !!}
+     <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">editar Bebida</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+
      <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -19,24 +27,24 @@
            <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('qtd', 'Qtd de bebida:') !!}
-                    {!! Form::text('qtd', $bebida->qtd, ['class'=> 'form-control', 'disabled' => true]) !!}
+                    {!! Form::label('nome', 'Nome da bebida:') !!}
+                    {!! Form::text('nome', $bebida->nome, ['class'=> 'form-control', 'disabled' => true]) !!}
                 </div>
             </div>
         </div>
         <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {!! Form::label('nome', 'Nome do bebida:') !!}
-                        {!! Form::text('nome',$bebida->nome, ['class'=> 'form-control', 'disabled' => true]) !!}
+                        {!! Form::label('alcool', 'percentagem de alcool:') !!}
+                        {!! Form::text('alcool',$bebida->alcool, ['class'=> 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
             </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('carboidratos', 'Quantidade de carboidartos:') !!}
-                    {!! Form::text('carboidratos', $bebida->carboidratos, ['class'=> 'form-control', 'disabled' => true]) !!}
+                    {!! Form::label('qtd', 'Quantidade (cl):') !!}
+                    {!! Form::text('qtd', $bebida->qtd, ['class'=> 'form-control', 'disabled' => true]) !!}
                 </div>
             </div>
         </div>
@@ -47,4 +55,12 @@
             </div>
         </div>
   </div>
+   </div>
+    </div>
+     </div>
+      </div>
+       </div>
+        </div>
+         </div>
+
 @endsection
