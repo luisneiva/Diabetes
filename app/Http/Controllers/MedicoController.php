@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Input;
 use App\Medico;
