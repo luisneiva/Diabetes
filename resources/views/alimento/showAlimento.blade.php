@@ -13,7 +13,6 @@
         <div class="panel-heading">Alimento</div>
             <div class="panel-body">
 
-
              <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
