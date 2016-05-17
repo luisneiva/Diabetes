@@ -8,10 +8,9 @@ use App\Http\Requests;
 
 
 use Illuminate\Support\Facades\Input;
-use App\Bebida;
+use App\Medico;
 
-
-class BebidaController extends Controller
+class MedicoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +19,8 @@ class BebidaController extends Controller
      */
     public function index()
     {
-        $bebidas = Bebida::get();
-
-        return view('bebida/listBebida', compact('bebidas'));
+        $medicos = Medico:get();
+        return view('medico/listMedicos', compact('medicos');
     }
 
     /**
@@ -32,7 +30,7 @@ class BebidaController extends Controller
      */
     public function create()
     {
-         return view('bebida.newBebida');
+        return view ('medico.newMedico');
     }
 
     /**
@@ -43,8 +41,8 @@ class BebidaController extends Controller
      */
     public function store(Request $request)
     {
-         $bebida = Bebida::create(Input::all());
-        return redirect()->route('bebida.create');
+    $medicos = Mediico::create(Input::all());
+    return redirect()->('medico.create');
     }
 
     /**
@@ -55,8 +53,8 @@ class BebidaController extends Controller
      */
     public function show($id)
     {
-        $bebida = Bebida::findOrFail($id);
-        return view('bebida/showBebida', compact('bebida'));
+        $medicos = Medico:findOrFail($id);
+        return view('medico/showMedico', compact('medicos'));
     }
 
     /**
@@ -67,9 +65,7 @@ class BebidaController extends Controller
      */
     public function edit($id)
     {
-         $bebida = Bebida::findOrFail($id);
-
-        return view('bebida/editBebida', compact('bebida'));
+        //
     }
 
     /**
@@ -81,10 +77,11 @@ class BebidaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bebida = Bebida::find($id);
-        $bebida->fill(Input::all());
-        $bebida->save();
-        return redirect()->route('bebida');
+        $medico = Medico::find($id);
+        $medico->fill(Input::all());
+        $medico ->save();
+        return redirect()->rout('medico');
+
     }
 
     /**
@@ -95,9 +92,9 @@ class BebidaController extends Controller
      */
     public function destroy($id)
     {
-        $bebida = Bebida::find($id);
-        $bebida->delete();
 
+        $medico = Medico::find('$id');
+        $medico->delete();
         return redirect()->back();
     }
 }

@@ -28,6 +28,9 @@ Route::group(['middlware' => 'auth'], function () {
 // Exercicio
     Route::resource('exercicio', 'ExercicioController');
 
+// Medico
+//Route::resource('medico', 'MedicoController');
+
 Route::get('/home', 'HomeController@index');
 
 Route::auth();
