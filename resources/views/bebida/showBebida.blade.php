@@ -16,7 +16,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
 
-     <div class="row">
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('id', 'Id :') !!}
@@ -24,6 +24,33 @@
                     </div>
                 </div>
             </div>
+
+             <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('calorias', 'Calorias:') !!}
+                            {!! Form::text('calorias', null, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('carboidratos', 'Carboidratos:') !!}
+                            {!! Form::text('carboidratos', null, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('proteinas', 'Proteinas:') !!}
+                            {!! Form::text('proteinas', null, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
            <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -36,10 +63,31 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('alcool', 'percentagem de alcool:') !!}
-                        {!! Form::text('alcool',$bebida->alcool, ['class'=> 'form-control', 'disabled' => true]) !!}
+                        {!! Form::text('alcool',$bebida->calorias, ['class'=> 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
-            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {!! Form::label('alcool', 'percentagem de alcool:') !!}
+                        {!! Form::text('alcool',$bebida->carboidratos, ['class'=> 'form-control', 'disabled' => true]) !!}
+                    </div>
+                </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {!! Form::label('alcool', 'percentagem de alcool:') !!}
+                        {!! Form::text('alcool',$bebida->proteinas, ['class'=> 'form-control', 'disabled' => true]) !!}
+                    </div>
+                </div>
+        </div>
+
+
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">

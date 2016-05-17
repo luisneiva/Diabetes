@@ -24,7 +24,9 @@
             margin-right: 6px;
         }
     </style>
+
 </head>
+
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">

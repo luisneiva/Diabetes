@@ -8,7 +8,9 @@ class Bebida extends Model
 {
     protected $fillable = [
          'nome',
-         'alcool',
-         'qtd'
+         'qtd',
+         'calorias',
+         'carboidratos',
+         'proteinas'
     ];
 }

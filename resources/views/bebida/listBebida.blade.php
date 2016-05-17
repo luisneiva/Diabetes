@@ -8,8 +8,10 @@
           <tr>
               <th data-field="id">ID</th>
               <th data-field="id">Nome</th>
-              <th data-field="price"> ( CL )</th>
-              <th data-field="name"> % alcool </th>
+              <th data-field="name">Calorias </th>
+              <th data-field="name">carboidratos </th>
+              <th data-field="name">Proteinas </th>
+               <th data-field="price">Quantidade</th>
 
           </tr>
         </thead>
@@ -19,9 +21,12 @@
             <tr class="line">
               <td class="text-center">{{$bebida->id}}</td>
               <td class="text-center">{{$bebida->nome}}</td>
+              <td class="text-center">{{$bebida->calorias}}</td>
+              <td class="text-center">{{$bebida->carboidratos}}</td>
+              <td class="text-center">{{$bebida->proteinas}}</td>
               <td class="text-center">{{$bebida->qtd}}</td>
-              <td class="text-center">{{$bebida->alcool}}</td>
               <td>
+
                 {!! Form::open(['route' => array('bebida.destroy', $bebida->id), 'method' => 'delete']) !!}
                 <!-- Show -->
                 <a href="{{ route('bebida.show', [$bebida->id]) }}" class="btn btn-primary">Ver</a>
