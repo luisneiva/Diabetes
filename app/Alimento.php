@@ -8,6 +8,8 @@ class Alimento extends Model
 {
    protected $fillable = [
         'nome',
-        'qtd_carboidratos'
+        'qtd_carboidratos',
+        'calorias',
+        'proteinas'
     ];
 }

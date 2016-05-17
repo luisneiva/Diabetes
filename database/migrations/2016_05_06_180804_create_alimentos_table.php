@@ -16,6 +16,8 @@ class CreateAlimentosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->integer('qtd_carboidratos');
+            $table->double('calorias');
+            $table-> double('proteinas');
             $table->timestamps();
         });
     }

@@ -18,8 +18,8 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('cedula', 'Numero de cedula de Cedula:') !!}
-                    {!! Form::text('cedula', null, ['class'=> 'form-control']) !!}
+                    {!! Form::label('num_cedula', 'Numero de cedula de Cedula:') !!}
+                    {!! Form::text('num_cedula', null, ['class'=> 'form-control']) !!}
                 </div>
             </div>
         </div>

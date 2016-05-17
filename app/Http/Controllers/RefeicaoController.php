@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-
 use Illuminate\Support\Facades\Input;
 
+use App\Refeicao;
 use App\Bebida;
+use App\Alimento;
+use App\User;
 
-
-class BebidaController extends Controller
+class RefeicaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +22,7 @@ class BebidaController extends Controller
      */
     public function index()
     {
-        $bebidas = Bebida::get();
-
-        return view('bebida/listBebida', compact('bebidas'));
+        dd('toninho');
     }
 
     /**
@@ -33,7 +32,20 @@ class BebidaController extends Controller
      */
     public function create()
     {
-         return view('bebida.newBebida');
+        $allAlimentos=null;
+        $allBebidas=[];
+
+        $bebidas = Bebida::get();
+        $alimentos = Alimento::get();
+
+         foreach ($alimentos as $alimento){
+            $allAlimentos = array_add($allAlimentos,$alimento->id, $alimento->nome);
+        }
+
+        foreach ($bebidas as $bebida){
+            $allBebidas = array_add($allBebidas,$bebida->id, $bebida->nome);
+        }
+          return view('refeicao.newRefeicao', compact('bebidas', 'alimentos', 'allBebidas', 'allAlimentos') );
     }
 
     /**
@@ -44,8 +56,8 @@ class BebidaController extends Controller
      */
     public function store(Request $request)
     {
-         $bebida = Bebida::create(Input::all());
-        return redirect()->route('bebida.create');
+        $refeicao = Refeicao::create(Input::all());
+        return redirect()->route('refeicao.create');
     }
 
     /**
@@ -56,8 +68,7 @@ class BebidaController extends Controller
      */
     public function show($id)
     {
-        $bebida = Bebida::findOrFail($id);
-        return view('bebida/showBebida', compact('bebida'));
+        //
     }
 
     /**
@@ -68,9 +79,7 @@ class BebidaController extends Controller
      */
     public function edit($id)
     {
-         $bebida = Bebida::findOrFail($id);
-
-        return view('bebida/editBebida', compact('bebida'));
+        //
     }
 
     /**
@@ -82,10 +91,7 @@ class BebidaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bebida = Bebida::find($id);
-        $bebida->fill(Input::all());
-        $bebida->save();
-        return redirect()->route('bebida.index');
+        //
     }
 
     /**
@@ -96,9 +102,6 @@ class BebidaController extends Controller
      */
     public function destroy($id)
     {
-        $bebida = Bebida::find($id);
-        $bebida->delete();
-
-        return redirect()->back();
+        //
     }
 }

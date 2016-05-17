@@ -8,7 +8,9 @@
           <tr>
               <th data-field="id">ID</th>
               <th data-field="name">Nome</th>
-              <th data-field="price">Qtd Carboidratos</th>
+              <th data-field="name">Calorias</th>
+              <th data-field="name">Proteinas</th>
+              <th data-field="price">Carboidratos</th>
           </tr>
         </thead>
 
@@ -17,6 +19,8 @@
             <tr class="line">
               <td class="text-center">{{$alimento->id}}</td>
               <td class="text-center">{{$alimento->nome}}</td>
+               <td class="text-center">{{$alimento->calorias}}</td>
+               <td class="text-center">{{$alimento->proteinas}}</td>
               <td class="text-center">{{$alimento->qtd_carboidratos}}</td>
               <td>
                 {!! Form::open(['route' => array('alimento.destroy', $alimento->id), 'method' => 'delete']) !!}
