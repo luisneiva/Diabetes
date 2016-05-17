@@ -1,7 +1,8 @@
+@extends('layouts.app')
+
+@section('content')
 <!-- All the files that are required -->
-<link rel="stylesheet" href="{{ asset("//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css") }}">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'><link rel="stylesheet" href="{{ asset('loginStyle.css') }}">
+<link rel="stylesheet" href="{{ asset('loginStyle.css') }}">
 
 
 <script src="{{ asset("//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js") }}"></script>
@@ -61,4 +62,5 @@
     </div>
     <!-- end:Main Form -->
 </div>
+@endsection
 

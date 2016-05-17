@@ -1,8 +1,7 @@
-<!-- All the files that are required -->
-<link rel="stylesheet" href="{{ asset("//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css") }}">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'><link rel="stylesheet" href="{{ asset('loginStyle.css') }}">
+@extends('layouts.app')
 
+<!-- All the files that are required -->
+<link rel="stylesheet" href="{{ asset('loginStyle.css') }}">
 
 <script src="{{ asset("//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js") }}"></script>
 <script src="{{ asset("//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js") }}"></script>
@@ -10,6 +9,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+@section('content')
 <!-- REGISTRATION FORM -->
 <div class="text-center" style="margin:0 auto; width: 323;">
     <div class="logo">Register</div>
@@ -87,8 +87,6 @@
                         @endif
                     </div>
 
-
-
                     <div class="form-group login-group-checkbox {{ $errors->has('type') ? ' has-error' : '' }}">
 
                         <label for="type">Diabetes:</label>
@@ -156,5 +154,6 @@
     </div>
     <!-- end:Main Form -->
 </div>
+@endsection
 
 
