@@ -6,13 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-
 use Illuminate\Support\Facades\Input;
 
-use App\Bebida;
+use App\Exercicio;
 
-
-class BebidaController extends Controller
+class ExercicioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +19,10 @@ class BebidaController extends Controller
      */
     public function index()
     {
-        $bebidas = Bebida::get();
+        $exercicios = Exercicio::get();
 
-        return view('bebida/listBebida', compact('bebidas'));
+        return view('exercicio/listExercicio', compact('exercicios'));
+
     }
 
     /**
@@ -33,7 +32,7 @@ class BebidaController extends Controller
      */
     public function create()
     {
-         return view('bebida.newBebida');
+        return view('exercicio/newExercicio');
     }
 
     /**
@@ -44,8 +43,8 @@ class BebidaController extends Controller
      */
     public function store(Request $request)
     {
-         $bebida = Bebida::create(Input::all());
-        return redirect()->route('bebida.create');
+        $exercicio = Exercicio::create(Input::all());
+        return redirect()->route('exercicio.create');
     }
 
     /**
@@ -56,8 +55,9 @@ class BebidaController extends Controller
      */
     public function show($id)
     {
-        $bebida = Bebida::findOrFail($id);
-        return view('bebida/showBebida', compact('bebida'));
+        $exercicio = Exercicio::findOrFail($id);
+         return view('exercicio/showExercicio', compact('exercicio'));
+
     }
 
     /**
@@ -68,9 +68,9 @@ class BebidaController extends Controller
      */
     public function edit($id)
     {
-         $bebida = Bebida::findOrFail($id);
+        $exercicio = Exercicio::findOrFail($id);
+        return view ('exercicio/editExercicio', compact('exercicio'));
 
-        return view('bebida/editBebida', compact('bebida'));
     }
 
     /**
@@ -82,10 +82,10 @@ class BebidaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bebida = Bebida::find($id);
-        $bebida->fill(Input::all());
-        $bebida->save();
-        return redirect()->route('bebida.index');
+        $exercicio = Exercicio::find($id);
+        $exercicio->fill(Input::all());
+        $exercicio->save();
+        return redirect()->route('exercicio.index');
     }
 
     /**
@@ -96,9 +96,7 @@ class BebidaController extends Controller
      */
     public function destroy($id)
     {
-        $bebida = Bebida::find($id);
-        $bebida->delete();
-
-        return redirect()->back();
+        $exercicio = Exercicio::findOrFail($id);
+        $exercicio->delete();
     }
 }

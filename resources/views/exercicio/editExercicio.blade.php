@@ -28,7 +28,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('intensidade', 'Nivel de intensidade:') !!}
-                        {!! Form::text('intensidade',$exercicio->intensidade, ['class'=> 'form-control']) !!}
+                        {!! Form::text('intensidade', $exercicio->intensidade, ['class'=> 'form-control']) !!}
                     </div>
                 </div>
             </div>

@@ -19,8 +19,8 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        $medicos = Medico:get();
-        return view('medico/listMedicos', compact('medicos');
+        $medicos = Medico::get();
+        return view('medico/listMedicos', compact('medicos'));
     }
 
     /**
@@ -41,8 +41,8 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-    $medicos = Mediico::create(Input::all());
-    return redirect()->('medico.create');
+    $medico = Medico::create(Input::all());
+    return redirect()->route('medico');
     }
 
     /**
@@ -53,8 +53,8 @@ class MedicoController extends Controller
      */
     public function show($id)
     {
-        $medicos = Medico:findOrFail($id);
-        return view('medico/showMedico', compact('medicos'));
+        $medico = Medico::findOrFail($id);
+        return view('medico/showMedico', compact('medico'));
     }
 
     /**
@@ -65,7 +65,8 @@ class MedicoController extends Controller
      */
     public function edit($id)
     {
-        //
+         $medico = Medico::findOrFail($id);
+        return view ('medico/editMedico', compact('medico'));
     }
 
     /**
@@ -80,7 +81,7 @@ class MedicoController extends Controller
         $medico = Medico::find($id);
         $medico->fill(Input::all());
         $medico ->save();
-        return redirect()->rout('medico');
+        return redirect()->route('medico.index');
 
     }
 

@@ -24,6 +24,24 @@
             </div>
 
             <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('calorias', 'Calorias:') !!}
+                            {!! Form::text('calorias',$alimento->calorias, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('proteinas', 'proteinas:') !!}
+                            {!! Form::text('proteinas',$alimento->proteinas, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         {!! Form::label('nome', 'Nome do alimento:') !!}

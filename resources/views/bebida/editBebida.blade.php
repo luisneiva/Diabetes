@@ -34,15 +34,33 @@
                             </div>
                         </div>
 
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    {!! Form::label('alcool', '% alcool') !!}
-                                    {!! Form::text('alcool', $bebida->alcool, ['class'=> 'form-control']) !!}
-                                </div>
-                            </div>
+                         <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('calorias', 'Calorias:') !!}
+                            {!! Form::text('calorias', $bebida->calorias, ['class'=> 'form-control']) !!}
                         </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('carboidratos', 'Carboidratos:') !!}
+                            {!! Form::text('carboidratos', $bebida->carboidratos, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('proteinas', 'Proteinas:') !!}
+                            {!! Form::text('proteinas', $bebida->proteinas, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

@@ -19,7 +19,8 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('intensidade', 'Intensidade do exercicio:') !!}
-                    {!! Form::text('intensidade',null, ['class'=> 'form-control']) !!}
+                    {!! Form::select('intensidade',['baixa' =>"BAIXA", 'media' => 'MEDIA', 'alta' => 'ALTA'], ['class'=> 'form-control' ,'onchange'=>'getValue()']) !!}
+
                 </div>
             </div>
         </div>

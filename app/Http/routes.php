@@ -15,6 +15,10 @@ Route::group(['middlware' => 'auth'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
+
+// Refeicao
+    Route::resource('refeicao', 'RefeicaoController');
+
 });
 // Medico
     Route::resource('medico', 'MedicoController');
@@ -29,9 +33,12 @@ Route::group(['middlware' => 'auth'], function () {
     Route::resource('exercicio', 'ExercicioController');
 
 // Medico
-//Route::resource('medico', 'MedicoController');
+  Route::resource('medico', 'MedicoController');
 
-Route::get('/home', 'HomeController@index');
+  // Refeicao
+    Route::resource('refeicao', 'RefeicaoController');
+
+  Route::get('/home', 'HomeController@index');
 
 Route::auth();
 

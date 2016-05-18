@@ -17,8 +17,8 @@
           @foreach ($exercicios as $exercicio)
             <tr class="line">
               <td class="text-center">{{$exercicio->id}}</td>
-              <td class="text-center">{{$exercicio->qtd}}</td>
-              <td class="text-center">{{$exercicio->nome}}</td>
+              <td class="text-center">{{$exercicio->tipo}}</td>
+              <td class="text-center">{{$exercicio->intensidade}}</td>
               <td class="text-center">{{$exercicio->calorias_gastas}}</td>
               <td>
                 {!! Form::open(['route' => array('exercicio.destroy', $exercicio->id), 'method' => 'delete']) !!}

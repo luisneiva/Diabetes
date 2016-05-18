@@ -20,10 +20,11 @@ class CreateRefeicaosTable extends Migration
             $table->integer('qtd_bebida');
             $table->integer('qtd_alimento');
             $table->double('total_carboidratos');
+            $table->timestamps();
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('alimento_id')->references('id')->on('alimentos');
             $table->foreign('bebida_id')->references('id')->on('bebidas');
-            $table->timestamps();
         });
     }
 

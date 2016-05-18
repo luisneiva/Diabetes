@@ -23,6 +23,24 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            {!! Form::label('calorias', 'Calorias:') !!}
+                            {!! Form::text('calorias',null, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('proteinas', 'proteinas:') !!}
+                            {!! Form::text('proteinas',null, ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             {!! Form::label('qtd_carboidratos', 'Quantidade de Carboidratos:') !!}
                             {!! Form::text('qtd_carboidratos', null, ['class'=> 'form-control']) !!}
                         </div>

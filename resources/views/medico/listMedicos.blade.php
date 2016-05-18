@@ -17,7 +17,7 @@
             <tr class="line">
               <td class="text-center">{{$medico->id}}</td>
               <td class="text-center">{{$medico->nome}}</td>
-              <td class="text-center">{{$medico->cedula}}</td>
+              <td class="text-center">{{$medico->num_cedula}}</td>
               <td>
                 {!! Form::open(['route' => array('medico.destroy', $medico->id), 'method' => 'delete']) !!}
                 <!-- Show -->
