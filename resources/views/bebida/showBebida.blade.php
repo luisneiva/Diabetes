@@ -4,7 +4,7 @@
 
 <div class="container">
 
-  <h1 class="text-center">Editar Bebida</h1>
+  <h1 class="text-center">Show Bebida</h1>
 
   <div id="formAtivo">
     {!! Form::open(['route' => ['bebida.update', $bebida->id], 'method' => 'PUT']) !!}
@@ -25,31 +25,9 @@
                 </div>
             </div>
 
-             <div class="col-md-6">
-                        <div class="form-group">
-                            {!! Form::label('calorias', 'Calorias:') !!}
-                            {!! Form::text('calorias', null, ['class'=> 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
 
-                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            {!! Form::label('carboidratos', 'Carboidratos:') !!}
-                            {!! Form::text('carboidratos', null, ['class'=> 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
 
-                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            {!! Form::label('proteinas', 'Proteinas:') !!}
-                            {!! Form::text('proteinas', null, ['class'=> 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
+
 
            <div class="row">
             <div class="col-md-6">
@@ -62,8 +40,8 @@
         <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {!! Form::label('alcool', 'percentagem de alcool:') !!}
-                        {!! Form::text('alcool',$bebida->calorias, ['class'=> 'form-control', 'disabled' => true]) !!}
+                        {!! Form::label('calorias', 'Calorias') !!}
+                        {!! Form::text('calorias',$bebida->calorias, ['class'=> 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
         </div>
@@ -71,8 +49,8 @@
         <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {!! Form::label('alcool', 'percentagem de alcool:') !!}
-                        {!! Form::text('alcool',$bebida->carboidratos, ['class'=> 'form-control', 'disabled' => true]) !!}
+                        {!! Form::label('carboidratos', 'carboidratos') !!}
+                        {!! Form::text('carboidratos',$bebida->carboidratos, ['class'=> 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
         </div>
@@ -80,22 +58,14 @@
         <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {!! Form::label('alcool', 'percentagem de alcool:') !!}
-                        {!! Form::text('alcool',$bebida->proteinas, ['class'=> 'form-control', 'disabled' => true]) !!}
+                        {!! Form::label('proteinas', 'Proteinas:') !!}
+                        {!! Form::text('proteinas',$bebida->proteinas, ['class'=> 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
         </div>
 
 
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    {!! Form::label('qtd', 'Quantidade (cl):') !!}
-                    {!! Form::text('qtd', $bebida->qtd, ['class'=> 'form-control', 'disabled' => true]) !!}
-                </div>
-            </div>
-        </div>
          <div class="row">
             <div class="col-md-12">
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>

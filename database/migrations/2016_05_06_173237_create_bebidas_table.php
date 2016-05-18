@@ -15,7 +15,6 @@ class CreateBebidasTable extends Migration
         Schema::create('bebidas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->double('qtd');
             $table->double('calorias');
             $table->double('carboidratos');
             $table->double('proteinas');

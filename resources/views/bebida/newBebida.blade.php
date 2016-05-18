@@ -47,14 +47,6 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            {!! Form::label('qtd', 'Quantidade :') !!}
-                            {!! Form::text('qtd', null, ['class'=> 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row">
                     <div class="col-md-12">

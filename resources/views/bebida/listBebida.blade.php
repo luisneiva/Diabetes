@@ -11,7 +11,6 @@
               <th data-field="name">Calorias </th>
               <th data-field="name">carboidratos </th>
               <th data-field="name">Proteinas </th>
-               <th data-field="price">Quantidade</th>
 
           </tr>
         </thead>
@@ -24,7 +23,7 @@
               <td class="text-center">{{$bebida->calorias}}</td>
               <td class="text-center">{{$bebida->carboidratos}}</td>
               <td class="text-center">{{$bebida->proteinas}}</td>
-              <td class="text-center">{{$bebida->qtd}}</td>
+
               <td>
 
                 {!! Form::open(['route' => array('bebida.destroy', $bebida->id), 'method' => 'delete']) !!}

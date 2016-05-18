@@ -23,6 +23,7 @@ class BebidaController extends Controller
     {
         $bebidas = Bebida::get();
 
+
         return view('bebida/listBebida', compact('bebidas'));
     }
 
