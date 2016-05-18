@@ -6,7 +6,7 @@
   <table class="table table-condensed, bordered">
         <thead>
           <tr>
-              <th data-field="id">User</th>
+              <th data-field="id">Nome Paciente</th>
               <th data-field="name">qtd_Alimento </th>
               <th data-field="id">Alimento</th>
                <th data-field="name">qtd_Bebida </th>

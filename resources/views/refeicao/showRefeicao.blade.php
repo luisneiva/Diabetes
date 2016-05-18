@@ -24,7 +24,7 @@
           <div class="col-md-6">
             <div class="form-group">
              {!! Form::label('username', 'User:') !!}
-             {!! Form::text('username', $user->username) !!}
+             {!! Form::input('username', $user->username, null , ['class'=> 'form-control','readonly' =>'readonly', 'placeholder' => $user->username]) !!}
            </div>
          </div>
        </div>
@@ -34,7 +34,7 @@
         <div class="col-md-6">
           <div class="form-group">
            {!! Form::label('alimento_id', 'Alimento:') !!}
-           {!! Form::text('alimento_id', $alimento->nome, null , ['class'=> 'form-control']) !!}
+           {!! Form::input('alimento_id', $alimento->nome, null , ['class'=> 'form-control','readonly' =>'readonly', 'placeholder' => $alimento->nome]) !!}
          </div>
        </div>
      </div>
@@ -43,7 +43,7 @@
       <div class="col-md-6">
         <div class="form-group">
           {!! Form::label('qtd_alimento', 'Quantidade de alimento (cl):') !!}
-          {!! Form::text('qtd_alimento', $refeicoes->qtd_alimento, ['class'=> 'form-control']) !!}
+          {!! Form::text('qtd_alimento', $refeicoes->qtd_alimento, ['class'=> 'form-control','readonly' =>'readonly']) !!}
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
       <div class="col-md-6">
         <div class="form-group">
           {!! Form::label('bebida_id', 'Bebida:') !!}
-          {!! Form::text('bebida_id', $bebida->nome , null, ['class'=> 'form-control']) !!}
+          {!! Form::input('bebida_id', $bebida->nome , null, ['class'=> 'form-control','readonly' =>'true', 'placeholder' => $bebida->nome]) !!}
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <div class="col-md-6">
         <div class="form-group">
           {!! Form::label('qtd_bebida', 'Quantidade de bebida :') !!}
-          {!! Form::text('qtd_bebida',$refeicoes->qtd_bebida , ['class'=> 'form-control']) !!}
+          {!! Form::text('qtd_bebida',$refeicoes->qtd_bebida , ['class'=> 'form-control','readonly' =>'readonly']) !!}
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
       <div class="col-md-6">
         <div class="form-group">
           {!! Form::label('total_carboidratos', 'Quantidade de Carboidratos:') !!}
-          {!! Form::text('total_carboidratos',$refeicoes->total_carboidratos, ['class'=> 'form-control']) !!}
+          {!! Form::text('total_carboidratos',$refeicoes->total_carboidratos, ['class'=> 'form-control','readonly' =>'readonly']) !!}
         </div>
       </div>
     </div>

@@ -23,16 +23,20 @@
     var qtdBebida   = normalizeValue(document.getElementById("qtd_bebida").value);
 
 
-    var carboIdratos = 0;
+    var carboIdratos = 0.0;
     var calorias = 0;
+    var proteinas = 0;
 
     // obtem o valor calorico do alimento
     for (var i = 0; i < alimentos.length; i++) {
       var curAlimento = alimentos[i];
 
       if (curAlimento.id === parseInt(selAlimento.value)) {
+
         carboIdratos = curAlimento.qtd_carboidratos * qtdAlimento;
         calorias = curAlimento.calorias * qtdAlimento;
+        proteinas = curAlimento.proteinas * qtdAlimento;
+
         break;
       }
     }
@@ -42,20 +46,28 @@
       var curBebida = bebidas[i];
 
       if (curBebida.id === parseInt(selBebida.value)) {
-        carboIdratos += curBebida.qtd * qtdBebida;
 
+        carboIdratos += curBebida.carboidratos * qtdBebida;
         calorias += curBebida.calorias * qtdBebida;
+        proteinas += curBebida.proteinas * qtdBebida;
+
         break;
       }
     }
-      console.log(calorias);
-    if (carboIdratos)
 
-      if (carboIdratos >= 120){
-        window.alert("está a consumir mais carboidaratos do que o desejavel");
-      }
+
+
+
+
     document.getElementById("total_carboidratos").value = parseInt(carboIdratos);
     document.getElementById("total_calorias").value = parseInt(calorias);
+    document.getElementById("total_proteinas").value = parseInt(proteinas);
+
+    if (carboIdratos)
+
+      if (carboIdratos >= 120 || qtdBebida>=3){
+        window.alert("vai consumir mais carboidratos e/ou alcool do que o desejavel");
+      }
   }
 
 </script>
@@ -85,7 +97,7 @@
                  <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            {!! Form::label('qtd_alimento', 'Quantidade de alimento (cl):') !!}
+                            {!! Form::label('qtd_alimento', 'Quantidade de alimento (100g):') !!}
                             {!! Form::text('qtd_alimento', 0 , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
                         </div>
                     </div>
@@ -103,7 +115,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            {!! Form::label('qtd_bebida', 'Quantidade de bebida (cl):') !!}
+                            {!! Form::label('qtd_bebida', 'Quantidade de bebida (20cl):') !!}
                             {!! Form::text('qtd_bebida', 0 , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
                         </div>
                     </div>
@@ -124,6 +136,16 @@
                         <div class="form-group">
                             {!! Form::label('total_calorias', 'Quantidade de Calorias:') !!}
                             {!! Form::text('total_calorias', 0, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('total_proteinas', 'Quantidade de Proteinas:') !!}
+                            {!! Form::text('total_proteinas', 0, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
                         </div>
                     </div>
                 </div>
