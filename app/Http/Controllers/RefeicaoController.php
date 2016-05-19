@@ -98,21 +98,23 @@ class RefeicaoController extends Controller
     public function edit($id)
     {
 
-
-         $allAlimentos=null;
+        $allAlimentos=null;
         $allBebidas=null;
 
         $bebidas = Bebida::get();
         $alimentos = Alimento::get();
-           $refeicoes = Refeicao::findOrFail($id);
-         foreach ($alimentos as $alimento){
+
+        $refeicao = Refeicao::findOrFail($id);
+
+        foreach ($alimentos as $alimento){
             $allAlimentos = array_add($allAlimentos,$alimento->id, $alimento->nome);
         }
 
         foreach ($bebidas as $bebida){
             $allBebidas = array_add($allBebidas,$bebida->id, $bebida->nome);
         }
-          return view('refeicao.editRefeicao', compact('refeicoes', 'bebidas', 'alimentos', 'allBebidas', 'allAlimentos') );
+
+        return view('refeicao.editRefeicao', compact('refeicao', 'bebidas', 'alimentos', 'allBebidas', 'allAlimentos') );
 
     }
 
@@ -125,7 +127,11 @@ class RefeicaoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refeicao = Refeicao::find($id);
+        $refeicao->fill(Input::all());
+        $refeicao->save();
+
+        return redirect()->route('refeicao.index');
     }
 
     /**

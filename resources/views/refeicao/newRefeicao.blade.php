@@ -32,7 +32,6 @@
       var curAlimento = alimentos[i];
 
       if (curAlimento.id === parseInt(selAlimento.value)) {
-
         carboIdratos = curAlimento.qtd_carboidratos * qtdAlimento;
         calorias = curAlimento.calorias * qtdAlimento;
         proteinas = curAlimento.proteinas * qtdAlimento;
@@ -59,9 +58,9 @@
 
 
 
-    document.getElementById("total_carboidratos").value = parseInt(carboIdratos);
-    document.getElementById("total_calorias").value = parseInt(calorias);
-    document.getElementById("total_proteinas").value = parseInt(proteinas);
+    document.getElementById("total_carboidratos").value = carboIdratos;
+    document.getElementById("total_calorias").value = calorias;
+    document.getElementById("total_proteinas").value = proteinas;
 
     if (carboIdratos)
 

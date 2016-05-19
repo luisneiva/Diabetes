@@ -17,6 +17,7 @@ class CreateMedicosTable extends Migration
             $table->string('nome');
             $table->integer('num_cedula');
             $table->timestamps();
+
         });
     }
 

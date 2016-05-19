@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('fullname');
             $table->char('sex', 1);
+            $table->integer('medico_id')->unsigned();
             $table->string('email')->unique();
             $table->string('type');
             $table->string('treatmenttype');
@@ -24,6 +25,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+
+                  $table->foreign('medico_id')->references('id')->on('medicos');
         });
     }
 

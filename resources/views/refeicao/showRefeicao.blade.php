@@ -77,6 +77,25 @@
     </div>
 
     <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('total_calorias', 'Quantidade de Calorias:') !!}
+                            {!! Form::text('total_calorias', $refeicoes->total_calorias, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('total_proteinas', 'Quantidade de Proteinas:') !!}
+                            {!! Form::text('total_proteinas', $refeicoes->total_proteinas, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
+                        </div>
+                    </div>
+                </div>
+
+    <div class="row">
       <div class="col-md-12">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>
         <a class="btn btn-primary btn-block" href="{{ url('refeicao') }}">Voltar</a>

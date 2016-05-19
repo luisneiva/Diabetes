@@ -9,6 +9,7 @@
   var qtdBebida = 0
   var qtdAlimento = 0
 
+
   function normalizeValue (value) {
     if (isNaN(value) || value === '' || value < 1) { return 0 }
 
@@ -21,14 +22,20 @@
     var selBebida   = document.getElementById("bebida_id");
     var qtdBebida   = normalizeValue(document.getElementById("qtd_bebida").value);
 
-    var carboIdratos = 0
+
+    var carboIdratos = 0.0;
+    var calorias = 0;
+    var proteinas = 0;
 
     // obtem o valor calorico do alimento
     for (var i = 0; i < alimentos.length; i++) {
       var curAlimento = alimentos[i];
 
       if (curAlimento.id === parseInt(selAlimento.value)) {
-        carboIdratos = curAlimento.qtd_carboidratos * qtdAlimento
+        carboIdratos = curAlimento.qtd_carboidratos * qtdAlimento;
+        calorias = curAlimento.calorias * qtdAlimento;
+        proteinas = curAlimento.proteinas * qtdAlimento;
+
         break;
       }
     }
@@ -38,17 +45,28 @@
       var curBebida = bebidas[i];
 
       if (curBebida.id === parseInt(selBebida.value)) {
-        carboIdratos += curBebida.qtd * qtdBebida
+
+        carboIdratos += curBebida.carboidratos * qtdBebida;
+        calorias += curBebida.calorias * qtdBebida;
+        proteinas += curBebida.proteinas * qtdBebida;
+
         break;
       }
     }
 
+
+
+
+
+    document.getElementById("total_carboidratos").value = carboIdratos;
+    document.getElementById("total_calorias").value = calorias;
+    document.getElementById("total_proteinas").value = proteinas;
+
     if (carboIdratos)
 
-      if (carboIdratos >= 120){
-        window.alert("está a consumir mais carboidaratos do que o desejavel");
+      if (carboIdratos >= 120 || qtdBebida>=3){
+        window.alert("vai consumir mais carboidratos e/ou alcool do que o desejavel");
       }
-    document.getElementById("total_carboidratos").value = parseInt(carboIdratos);
   }
 
 </script>
@@ -59,7 +77,7 @@
 
 
 
-    {!! Form::open(['route'=> ['refeicao.store']]) !!}
+    {!! Form::open(['route'=> ['refeicao.update', $refeicao->id], 'method' => 'PUT']) !!}
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
             <div class="panel-heading">Refeição</div>
@@ -79,7 +97,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {!! Form::label('qtd_alimento', 'Quantidade de alimento (cl):') !!}
-                            {!! Form::text('qtd_alimento', $refeicoes->qtd_alimento, ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
+                            {!! Form::text('qtd_alimento', $refeicao->qtd_alimento, ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
                         </div>
                     </div>
                 </div>
@@ -97,7 +115,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {!! Form::label('qtd_bebida', 'Quantidade de bebida (cl):') !!}
-                            {!! Form::text('qtd_bebida',$refeicoes->qtd_bebida , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
+                            {!! Form::text('qtd_bebida',$refeicao->qtd_bebida , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
                         </div>
                     </div>
                 </div>
@@ -107,7 +125,26 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {!! Form::label('total_carboidratos', 'Quantidade de Carboidratos:') !!}
-                            {!! Form::text('total_carboidratos',$refeicoes->total_carboidratos, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
+                            {!! Form::text('total_carboidratos',$refeicao->total_carboidratos, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('total_calorias', 'Quantidade de Calorias:') !!}
+                            {!! Form::text('total_calorias', $refeicao->total_calorias, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('total_proteinas', 'Quantidade de Proteinas:') !!}
+                            {!! Form::text('total_proteinas', $refeicao->total_proteinas, ['class'=> 'form-control','readonly' =>'readonly', 'onchange'=>'getValue()']) !!}
                         </div>
                     </div>
                 </div>
