@@ -12,7 +12,7 @@ use App\Refeicao;
 use App\Bebida;
 use App\Alimento;
 use App\User;
-
+use Auth;
 class RefeicaoController extends Controller
 {
     /**
@@ -22,7 +22,13 @@ class RefeicaoController extends Controller
      */
     public function index()
     {
-        dd('toninho');
+        $actUser = Auth::user()->username;
+        $refeicoes = Refeicao::get();
+        $alimentos = Alimento::get();
+        $bebidas = Bebida::get();
+
+
+        return view('refeicao/listRefeicao', compact('refeicoes', 'actUser','bebidas', 'alimentos'));
     }
 
     /**
@@ -33,7 +39,7 @@ class RefeicaoController extends Controller
     public function create()
     {
         $allAlimentos=null;
-        $allBebidas=[];
+        $allBebidas=null;
 
         $bebidas = Bebida::get();
         $alimentos = Alimento::get();
@@ -68,7 +74,19 @@ class RefeicaoController extends Controller
      */
     public function show($id)
     {
-        //
+
+     $refeicoes = Refeicao::findOrFail($id);
+
+     $user = User::findOrFail($refeicoes->id);
+
+
+     $bebida = Bebida::findOrFail($refeicoes->bebida_id);
+
+     $alimento=Alimento::findOrFail($refeicoes->alimento_id);
+
+    //dd($user->username, $bebida->nome, $alimento->nome);
+     return view('refeicao/showRefeicao', compact('user', 'bebida', 'alimento', 'refeicoes'));
+
     }
 
     /**
@@ -79,7 +97,23 @@ class RefeicaoController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
+         $allAlimentos=null;
+        $allBebidas=null;
+
+        $bebidas = Bebida::get();
+        $alimentos = Alimento::get();
+           $refeicoes = Refeicao::findOrFail($id);
+         foreach ($alimentos as $alimento){
+            $allAlimentos = array_add($allAlimentos,$alimento->id, $alimento->nome);
+        }
+
+        foreach ($bebidas as $bebida){
+            $allBebidas = array_add($allBebidas,$bebida->id, $bebida->nome);
+        }
+          return view('refeicao.editRefeicao', compact('refeicoes', 'bebidas', 'alimentos', 'allBebidas', 'allAlimentos') );
+
     }
 
     /**

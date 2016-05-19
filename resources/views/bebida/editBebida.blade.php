@@ -61,14 +61,7 @@
                     </div>
                 </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    {!! Form::label('qtd', 'Quantidade (cl):') !!}
-                                    {!! Form::text('qtd', $bebida->qtd, ['class'=> 'form-control']) !!}
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}"/>

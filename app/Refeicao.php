@@ -12,6 +12,8 @@ class Refeicao extends Model
         'qtd_bebida',
         'qtd_alimento',
         'total_carboidratos',
+        'total_calorias',
+        'total_proteinas',
         'user_id'
     ];
 }
