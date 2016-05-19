@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
          $this->call(AlimentoTableSeeder::class);
          $this->call(BebidaTableSeeder::class);
          $this->call(MedicoTableSeeder::class);
+         $this->call(ExercicioTableSeeder::class);
     }
 }
