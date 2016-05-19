@@ -8,7 +8,6 @@ class Exercicio extends Model
 {
      protected $fillable = [
         'tipo',
-        'intensidade',
         'calorias_gastas'
     ];
 }

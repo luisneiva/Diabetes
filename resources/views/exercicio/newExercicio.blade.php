@@ -1,6 +1,9 @@
 @extends('welcome')
 
 @section('content')
+
+
+
 <div class="container">
     <h1 class="text-center">Registo de exercicio</h1>
 
@@ -10,25 +13,25 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('tipo', 'Tipo de  exercicio:') !!}
-                    {!! Form::text('tipo', null, ['class'=> 'form-control']) !!}
+                    {!! Form::label('tipo', 'Exercicio:') !!}
+                    {!! Form::select('tipo', $allExercicios, ['class'=> 'form-control']) !!}
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    {!! Form::label('intensidade', 'Intensidade do exercicio:') !!}
-                    {!! Form::select('intensidade',['baixa' =>"BAIXA", 'media' => 'MEDIA', 'alta' => 'ALTA'], ['class'=> 'form-control' ,'onchange'=>'getValue()']) !!}
-
+                    {!! Form::label('tempo', 'Tempo de exercicio:') !!}
+                    {!! Form::text('tempo', 0, ['class'=> 'form-control']) !!}
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('calorias_gastas', 'Quantidade de Calorias gastas:') !!}
-                    {!! Form::text('calorias_gastas', null, ['class'=> 'form-control']) !!}
+                    {!! Form::text('calorias_gastas', 0, ['class'=> 'form-control']) !!}
                 </div>
             </div>
         </div>
