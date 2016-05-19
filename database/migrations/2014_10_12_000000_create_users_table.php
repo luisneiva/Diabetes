@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('fullname');
             $table->char('sex', 1);
-            $table->integer('medico_id')->unsigned();
+            $table->integer('medico_id')->unsigned()->nullable();
             $table->string('email')->unique();
             $table->string('type');
             $table->string('treatmenttype');

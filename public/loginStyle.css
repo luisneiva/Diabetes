@@ -268,9 +268,9 @@ label:hover:before {
 [type="radio"]:not(:checked) + label:after,
 [type="radio"]:checked + label:after {
   content: '\2022';
-  top: 0;
-  left: 3px;
-  font-size: 30px;
+  top: -3px;
+  left: 2px;
+  font-size: 22px;
   line-height: 25px;
 }
 /*=== 9. Misc ===*/
