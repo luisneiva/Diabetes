@@ -22,8 +22,7 @@ class CreateUtentesTable extends Migration
             $table->string('treatmenttype');
             $table->integer('weight');
             $table->timestamps();
-
-            $table->foreign('medico_id')->references('id')->on('medicos');
+            
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
