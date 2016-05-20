@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+
+use App\Utente;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
-
 use Illuminate\Support\Facades\Input;
-use App\Medico;
 
-class MedicoController extends Controller
+class UtenteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        $medicos = Medico::get();
-        return view('medico/listMedicos', compact('medicos'));
+        $utentes = Utente::get();
+        return view('utente/listUtentes', compact($utentes));
     }
 
     /**
@@ -30,7 +30,7 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        return view ('medico.newMedico');
+        return view('utente.newUtente');
     }
 
     /**
@@ -41,8 +41,15 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-    $medico = Medico::create(Input::all());
-    return redirect()->route('medico');
+        $data = $request->all();
+
+        // definir o user_id
+        $data['user_id'] = Auth::user()->id;
+
+        // cria o novo utente
+        $utente = Utente::create($data);
+
+        return redirect()->route('utente.show', $utente->id);
     }
 
     /**
@@ -53,8 +60,8 @@ class MedicoController extends Controller
      */
     public function show($id)
     {
-         // $medico = Medico::findOrFail($id);
-         return view('medico/showMedico');
+        $utente = Utente::findOrFail($id);
+        return view('utente/showUtente', compact('utente'));
     }
 
     /**
@@ -65,8 +72,8 @@ class MedicoController extends Controller
      */
     public function edit($id)
     {
-         $medico = Medico::findOrFail($id);
-        return view ('medico/editMedico', compact('medico'));
+        $utente = Utente::findOrFail($id);
+        return view('utente/editUtente', compact('utente'));
     }
 
     /**
@@ -78,11 +85,10 @@ class MedicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $medico = Medico::find($id);
-        $medico->fill(Input::all());
-        $medico ->save();
-        return redirect()->route('medico.index');
-
+        $utente = Utente::find($id);
+        $utente->fill(Input::all());
+        $utente->save();
+        return redirect()->route('utente.index');
     }
 
     /**
@@ -93,9 +99,8 @@ class MedicoController extends Controller
      */
     public function destroy($id)
     {
-
-        $medico = Medico::find('$id');
-        $medico->delete();
+        $utente = Utente::find('$id');
+        $utente->delete();
         return redirect()->back();
     }
 }

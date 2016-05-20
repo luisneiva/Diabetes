@@ -11,15 +11,40 @@
 |
 */
 
-Route::group(['middlware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
 
-// Refeicao
+    Route::get('/home', function () {
+        $user = Auth::user();
+
+        if ($user->type === 1) { // medico
+            return redirect()->route('medico.show', $user->id);
+        } else { // utente
+            if ($user->utente === null) { return redirect()->route('utente.create'); }
+
+            return redirect()->route('utente.show', $user->utente->id);
+        }
+    });
+
+    // funcionalidades dos utentes
+    Route::group(['middleware' => 'newUtente'], function () {
+        // Utente
+        Route::resource('utente', 'UtenteController');
+
+        // AQUI
+    });
+
+    // permite submeter o formulario do registo do utente (initial)
+    Route::resource('utente', 'UtenteController', ['only' => 'store']);
+
+    // Refeicao
     Route::resource('refeicao', 'RefeicaoController');
 
+
 });
+
 // Medico
     Route::resource('medico', 'MedicoController');
 
@@ -32,13 +57,8 @@ Route::group(['middlware' => 'auth'], function () {
 // Exercicio
     Route::resource('exercicio', 'ExercicioController');
 
-// Medico
-  Route::resource('medico', 'MedicoController');
-
   // Refeicao
     Route::resource('refeicao', 'RefeicaoController');
-
-  Route::get('/home', 'HomeController@index');
 
 Route::auth();
 
