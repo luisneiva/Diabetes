@@ -16,6 +16,16 @@ Route::group(['middleware' => 'auth'], function () {
         return view('welcome');
     });
 
+
+    // Refeicao
+        Route::resource('refeicao', 'RefeicaoController');
+
+    // Registo diario
+    Route::resource('registo', 'RegistoDiarioController');
+
+    //Graficos
+    Route::resource('grafico', 'GraficoController@index');
+
     Route::get('/home', function () {
         $user = Auth::user();
 
@@ -41,24 +51,22 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Refeicao
     Route::resource('refeicao', 'RefeicaoController');
-
-
 });
 
 // Medico
-    Route::resource('medico', 'MedicoController');
+Route::resource('medico', 'MedicoController');
 
 // Bebida
-    Route::resource('bebida', 'BebidaController');
+Route::resource('bebida', 'BebidaController');
 
 // Alimento
-    Route::resource('alimento', 'AlimentoController');
+Route::resource('alimento', 'AlimentoController');
 
 // Exercicio
-    Route::resource('exercicio', 'ExercicioController');
+Route::resource('exercicio', 'ExercicioController');
 
-  // Refeicao
-    Route::resource('refeicao', 'RefeicaoController');
+// Medico
+Route::resource('medico', 'MedicoController');
 
 Route::auth();
 
