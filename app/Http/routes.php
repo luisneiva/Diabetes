@@ -11,11 +11,11 @@
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::group(['middleware' => 'auth'], function () {
 
     // Refeicao
         Route::resource('refeicao', 'RefeicaoController');
