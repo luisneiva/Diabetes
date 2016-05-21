@@ -68,5 +68,65 @@ class AlimentoTableSeeder extends Seeder
             'updated_at' => 12345,
         ]);
 
+          DB::table('alimentos')->insert([
+            'nome' => 'manteiga',
+            'qtd_carboidratos' => 0.1,
+            'calorias' => 717,
+            'proteinas' => 0.9,
+            'created_at' => 12345,
+            'updated_at' => 12345,
+        ]);
+            DB::table('alimentos')->insert([
+            'nome' => 'pão',
+            'qtd_carboidratos' => 49,
+            'calorias' => 265,
+            'proteinas' => 9,
+            'created_at' => 12345,
+            'updated_at' => 12345,
+        ]);
+            DB::table('alimentos')->insert([
+            'nome' => 'ovo',
+            'qtd_carboidratos' => 13,
+            'calorias' => 155,
+            'proteinas' => 1.1,
+            'created_at' => 12345,
+            'updated_at' => 12345,
+        ]);
+
+            DB::table('alimentos')->insert([
+            'nome' => 'leite',
+            'qtd_carboidratos' => 42,
+            'calorias' => 42,
+            'proteinas' => 151,
+            'created_at' => 12345,
+            'updated_at' => 12345,
+        ]);
+              DB::table('alimentos')->insert([
+            'nome' => 'chocolate',
+            'qtd_carboidratos' => 61,
+            'calorias' => 546,
+            'proteinas' => 4.9,
+            'created_at' => 12345,
+            'updated_at' => 12345,
+        ]);
+
+            DB::table('alimentos')->insert([
+            'nome' => 'yogurte',
+            'qtd_carboidratos' => 3.6,
+            'calorias' => 59,
+            'proteinas' => 10,
+            'created_at' => 12345,
+            'updated_at' => 12345,
+        ]);
+
+            DB::table('alimentos')->insert([
+            'nome' => 'sobremesa',
+            'qtd_carboidratos' => 99,
+            'calorias' => 383,
+            'proteinas' => 0,
+            'created_at' => 12345,
+            'updated_at' => 12345,
+        ]);
+
     }
 }
