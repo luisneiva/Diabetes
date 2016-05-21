@@ -18,7 +18,6 @@ class CreateNotificacaosTable extends Migration
             $table->integer('medico_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('medico_id')->references('id')->on('medicos');
             $table->timestamps();
         });
     }
