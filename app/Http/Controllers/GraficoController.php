@@ -21,19 +21,9 @@ class GraficoController extends Controller
     public function index()
     {
       $registos = RegistoDiario::all();
-      $refeicaos = Refeicao::all();
-      $exercicioDiario = ExercicioDiario::all();
 
 
-
-
-
-
-
-
-
-
-      return view('grafico.grafico', compact('registos', 'refeicaos', 'exercicioDiario'));
+      return view('grafico.grafico', compact('registos'));
     }
 
     /**

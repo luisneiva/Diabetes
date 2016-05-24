@@ -29,6 +29,14 @@ Route::group(['middleware' => 'auth'], function () {
     //Graficos
     Route::resource('grafico', 'GraficoController@index');
 
+    //Notificações
+    Route::resource('notifica', 'NotificaController@index');
+
+    //Sugestões
+    Route::resource('sugere', 'SugereController@index');
+
+
+
     Route::get('/home', function () {
         $user = Auth::user();
 
