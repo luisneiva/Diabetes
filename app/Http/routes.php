@@ -11,11 +11,11 @@
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::group(['middleware' => 'auth'], function () {
 
     // Refeicao
         Route::resource('refeicao', 'RefeicaoController');
@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', function () {
         $user = Auth::user();
 
-        if ($user->type === 1) { // medico
+        if ($user->type == 1) { // medico
             return redirect()->route('medico.show', $user->id);
         } else { // utente
             if ($user->utente === null) { return redirect()->route('utente.create'); }
