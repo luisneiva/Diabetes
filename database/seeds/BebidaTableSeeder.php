@@ -20,8 +20,8 @@
               'calorias' => 42,
               'carboidratos' => 42,
               'proteinas' => 151,
-              'created_at' => 12345,
-              'updated_at' => 12345,
+              'created_at' => 2016-05-24 15:51:03,
+              'updated_at' => 2016-05-24 15:51:03,
             ]);
 
             DB::table('bebidas')->insert([
@@ -29,8 +29,8 @@
               'calorias' => 43,
               'carboidratos' => 3.6 ,
               'proteinas' => .5,
-              'created_at' => 12345,
-              'updated_at' => 12345,
+              'created_at' => 2016-05-24 15:51:03,
+              'updated_at' => 2016-05-24 15:51:03,
             ]);
 
             DB::table('bebidas')->insert([
@@ -38,8 +38,8 @@
               'calorias' => 83,
               'carboidratos' => 2.7 ,
               'proteinas' => .1,
-              'created_at' => 12345,
-              'updated_at' => 12345,
+              'created_at' => 2016-05-24 15:51:03,
+              'updated_at' => 2016-05-24 15:51:03,
           ]);
 
              DB::table('bebidas')->insert([
@@ -47,8 +47,8 @@
               'calorias' => 82,
               'carboidratos' => 2.6,
               'proteinas' => .1,
-              'created_at' => 12345,
-              'updated_at' => 12345,
+              'created_at' => 2016-05-24 15:51:03,
+              'updated_at' => 2016-05-24 15:51:03,
           ]);
       }
   }
