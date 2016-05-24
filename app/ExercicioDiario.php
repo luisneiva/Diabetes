@@ -10,6 +10,6 @@ class ExercicioDiario extends Model
         'data',
         'exercicio_id',
         'tempo_gasto',
-        'calorias_gastas'
+        'total_dia'
     ];
 }

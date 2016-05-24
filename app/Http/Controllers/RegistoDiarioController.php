@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 
 use App\RegistoDiario;
+use App\Refeicao;
 
 class RegistoDiarioController extends Controller
 {
@@ -31,7 +32,8 @@ class RegistoDiarioController extends Controller
      */
     public function create()
     {
-        return view('registo.newRegisto');
+        $refeicaos= Refeicao::get();
+        return view('registo.newRegisto', compact('refeicaos'));
     }
 
     /**

@@ -54,10 +54,6 @@
       }
     }
 
-
-
-
-
     document.getElementById("total_carboidratos").value = carboIdratos;
     document.getElementById("total_calorias").value = calorias;
     document.getElementById("total_proteinas").value = proteinas;
