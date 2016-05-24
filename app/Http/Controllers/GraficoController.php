@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use App\Refeicao;
 use App\RegistoDiario;
-use App\Exercicio;
+use App\ExercicioDiario;
 
 class GraficoController extends Controller
 {
@@ -22,9 +22,18 @@ class GraficoController extends Controller
     {
       $registos = RegistoDiario::all();
       $refeicaos = Refeicao::all();
-      $exercicios = Exercicio::all();
+      $exercicioDiario = ExercicioDiario::all();
 
-      return view('grafico.grafico', compact('registos', 'refeicaos', 'exercicios'));
+
+
+
+
+
+
+
+
+
+      return view('grafico.grafico', compact('registos', 'refeicaos', 'exercicioDiario'));
     }
 
     /**

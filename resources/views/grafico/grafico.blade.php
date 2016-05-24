@@ -130,7 +130,7 @@
               pointHoverBorderWidth: 2,
               pointRadius: 3,
               pointHitRadius: 10,
-              data: [@foreach ($exercicios as $exercicio) {{ $exercicio->calorias_gastas}}, @endforeach]
+              data: [@foreach ($exercicioDiario as $exercicio) {{ $exercicio->calorias_gastas}}, @endforeach]
           }]
       },
       options: {
