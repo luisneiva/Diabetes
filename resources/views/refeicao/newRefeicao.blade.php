@@ -71,6 +71,11 @@
 
 </script>
 
+@if (Session::has('message'))
+    <div class="alert alert-danger">
+        {{Session::get('message')}}
+    </div>
+    @endif
 
 <div class="container">
 <h1 class="text-center">Registo de Refeições</h1>
@@ -83,6 +88,15 @@
             <div class="panel-heading">Refeição</div>
             <div class="panel-body">
                 {!! Form::hidden('user_id', Auth::user()->id) !!}
+                {!! Form::hidden('data', $data) !!}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('refeicao', 'Refeição:') !!}
+                            {!! Form::select('refeicao', ['Peq Almoco' =>'Peq Almoco', 'Almoco' => 'Almoco', 'Lanche' => 'Lanche', 'Jantar' =>'Jantar'], null , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
+                        </div>
+                    </div>
+                </div>
 
                  <div class="row">
                     <div class="col-md-6">
@@ -97,7 +111,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {!! Form::label('qtd_alimento', 'Quantidade de alimento (100g):') !!}
-                            {!! Form::text('qtd_alimento', 0 , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
+                            {!! Form::text('qtd_alimento', 0 , ['class'=> 'form-control','onchange'=>'getValue()']) !!}
                         </div>
                     </div>
                 </div>

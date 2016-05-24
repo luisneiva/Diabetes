@@ -13,6 +13,9 @@ use App\Bebida;
 use App\Alimento;
 use App\User;
 use Auth;
+use Carbon\Carbon;
+use Alert;
+
 class RefeicaoController extends Controller
 {
     /**
@@ -51,7 +54,12 @@ class RefeicaoController extends Controller
         foreach ($bebidas as $bebida){
             $allBebidas = array_add($allBebidas,$bebida->id, $bebida->nome);
         }
-          return view('refeicao.newRefeicao', compact('bebidas', 'alimentos', 'allBebidas', 'allAlimentos') );
+
+        $data = Carbon::today();
+
+
+          return view('refeicao.newRefeicao', compact('bebidas', 'alimentos', 'allBebidas', 'allAlimentos', 'data') );
+
     }
 
     /**
@@ -62,6 +70,32 @@ class RefeicaoController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $datas = explode(" ", Carbon::today());
+
+
+        $data = $datas[0];
+
+        $refeicaos = Refeicao::get();
+
+/*
+        foreach ($refeicaos as $refeicao){
+
+            $dataRef = explode(" ", $request->data);
+            $dat = $dataRef[0];
+
+            if(($refeicao->refeicao === $request->refeicao)){
+                if($refeicao->data === $data){
+
+                    return redirect('refeicao/create')->with('message','não pode criar refeiçoes repetidas pra o mesmo dia... pode editar ');
+
+                }
+
+            }
+        }
+*/
+
         $refeicao = Refeicao::create(Input::all());
         return redirect()->route('refeicao.create');
     }
@@ -84,7 +118,6 @@ class RefeicaoController extends Controller
 
      $alimento=Alimento::findOrFail($refeicoes->alimento_id);
 
-    //dd($user->username, $bebida->nome, $alimento->nome);
      return view('refeicao/showRefeicao', compact('user', 'bebida', 'alimento', 'refeicoes'));
 
     }
@@ -127,6 +160,7 @@ class RefeicaoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $refeicao = Refeicao::find($id);
         $refeicao->fill(Input::all());
         $refeicao->save();

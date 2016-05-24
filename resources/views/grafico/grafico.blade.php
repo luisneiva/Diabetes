@@ -26,7 +26,7 @@
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: [@foreach ($refeicaos as $refeicao) "{{ $refeicao->created_at}}", @endforeach],
+          labels: [@foreach ($registos as $registo) "{{ $registo->created_at}}", @endforeach],
           datasets: [{
               label: '# Glicose',
               fill: false,

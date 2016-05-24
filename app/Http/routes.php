@@ -23,6 +23,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Registo diario
     Route::resource('registo', 'RegistoDiarioController');
 
+     // Exercicio diario
+    Route::resource('exerDiario', 'ExercicioDiarioController');
+
     //Graficos
     Route::resource('grafico', 'GraficoController@index');
 

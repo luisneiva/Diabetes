@@ -93,14 +93,6 @@ class AlimentoTableSeeder extends Seeder
             'updated_at' => 12345,
         ]);
 
-            DB::table('alimentos')->insert([
-            'nome' => 'leite',
-            'qtd_carboidratos' => 42,
-            'calorias' => 42,
-            'proteinas' => 151,
-            'created_at' => 12345,
-            'updated_at' => 12345,
-        ]);
               DB::table('alimentos')->insert([
             'nome' => 'chocolate',
             'qtd_carboidratos' => 61,

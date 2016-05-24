@@ -6,7 +6,9 @@
   <table class="table table-condensed, bordered">
         <thead>
           <tr>
-              <th data-field="id">Nome Paciente</th>
+              <th data-field="id">Nome Utente</th>
+              <th data-field="name">DAta </th>
+              <th data-field="name">Refeição </th>
               <th data-field="name">qtd_Alimento </th>
               <th data-field="id">Alimento</th>
                <th data-field="name">qtd_Bebida </th>
@@ -21,6 +23,10 @@
                 @if($refeicao->user_id == Auth::user()->id)
 
                   <td class="col-md-3, text-center">{{ $actUser }}</td>
+
+                  <td class="col-md-3, text-center">{{ $refeicao->data }}</td>
+
+                  <td class="col-md-2, text-center">{{ $refeicao->refeicao }}</td>
 
                   <td class="col-md-2, text-center">{{ $refeicao->qtd_alimento }}</td>
 

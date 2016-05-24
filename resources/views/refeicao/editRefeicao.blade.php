@@ -55,12 +55,9 @@
     }
 
 
-
-
-
-    document.getElementById("total_carboidratos").value = carboIdratos;
-    document.getElementById("total_calorias").value = calorias;
-    document.getElementById("total_proteinas").value = proteinas;
+    document.getElementById("total_carboidratos").value = carboIdratos.;
+    document.getElementById("total_calorias").value = calorias.;
+    document.getElementById("total_proteinas").value = proteinasTotal;
 
     if (carboIdratos)
 
@@ -83,6 +80,16 @@
             <div class="panel-heading">Refeição</div>
             <div class="panel-body">
                 {!! Form::hidden('user_id', Auth::user()->id) !!}
+                {!! Form::hidden('data', $data) !!}
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('refeicao', 'Refeição:') !!}
+                            {!! Form::select('refeicao', ['Peq Almoco' =>'Peq Almoco', 'Almoco' => 'Almoco', 'Lanche' => 'Lanche', 'Jantar' =>'Jantar'], null , ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
 
                  <div class="row">
                     <div class="col-md-6">

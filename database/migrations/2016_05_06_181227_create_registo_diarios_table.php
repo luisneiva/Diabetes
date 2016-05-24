@@ -14,8 +14,9 @@ class CreateRegistoDiariosTable extends Migration
     {
         Schema::create('registo_diarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('glicose');
+            $table->integer('glicose')->nullable();
             $table->integer('user_id')->unsigned();
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

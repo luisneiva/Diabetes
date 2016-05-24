@@ -14,7 +14,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     {!! Form::label('tipo', 'Exercicio:') !!}
-                    {!! Form::select('tipo', $allExercicios, ['class'=> 'form-control']) !!}
+                    {!! Form::text('tipo', null, ['class'=> 'form-control']) !!}
                 </div>
             </div>
         </div>
