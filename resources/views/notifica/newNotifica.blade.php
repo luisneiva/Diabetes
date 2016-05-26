@@ -17,6 +17,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
+                   {!! Form::hidden('check', false) !!}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
                     {!! Form::label('notificacao', 'Notificação:') !!}
                     {!! Form::textarea('notificacao', null, ['class'=> 'form-control']) !!}
                 </div>

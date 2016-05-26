@@ -60,9 +60,10 @@
 
     if (carboIdratos)
 
-      if (carboIdratos >= 120 || qtdBebida>=3){
-        window.alert("vai consumir mais carboidratos e/ou alcool do que o desejavel");
+      if (carboIdratos >= 150 || qtdBebida>=3){
+        window.alert("O ideal seria consumir carboidratos em valor inferior a 150g e 2 ou menos bebidas alcoolicas por dia");
       }
+
   }
 
 </script>

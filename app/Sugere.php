@@ -8,6 +8,7 @@ class Sugere extends Model
 {
  protected $fillable = [
       'sugestao',
-      'user_id'
+      'user_id',
+      'check'
     ];
 }

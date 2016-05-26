@@ -16,6 +16,7 @@ class CreateSugeresTable extends Migration
             $table->increments('id');
             $table->string('sugestao');
             $table->integer('user_id')->unsigned();
+            $table->boolean('check');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
