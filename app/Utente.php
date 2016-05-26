@@ -12,6 +12,6 @@ class Utente extends Model
      * @var array
      */
     protected $fillable = [
-        'username', 'fullname', 'sex', 'medico_id', 'type', 'treatmenttype', 'weight', 'user_id'
+        'username', 'fullname', 'gender', 'medico_id', 'type', 'treatmenttype', 'weight', 'user_id'
     ];
 }

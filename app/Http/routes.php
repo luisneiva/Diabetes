@@ -15,10 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// funcionalidades  admin
 Route::group(['middleware' => 'auth'], function () {
 
     // Refeicao
-        Route::resource('refeicao', 'RefeicaoController');
+    Route::resource('refeicao', 'RefeicaoController');
 
     // Registo diario
     Route::resource('registo', 'RegistoDiarioController');
@@ -27,13 +28,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('exerDiario', 'ExercicioDiarioController');
 
     //Graficos
-    Route::resource('grafico', 'GraficoController@index');
+    //Route::resource('grafico', 'GraficoController@index');
 
     //Notificações
     Route::resource('notifica', 'NotificaController');
 
     //Sugestões
     Route::resource('sugere', 'SugereController');
+
+    //Grafico do utente
+    Route::resource('grafico', 'GraficoController');
+
+    //Utente
+    Route::resource('utente', 'UtenteController');
+
 
 
 
@@ -51,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // funcionalidades dos utentes
     Route::group(['middleware' => 'newUtente'], function () {
+
         // Utente
         Route::resource('utente', 'UtenteController');
 

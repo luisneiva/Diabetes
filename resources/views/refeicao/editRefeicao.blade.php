@@ -59,11 +59,9 @@
     document.getElementById("total_calorias").value = calorias.;
     document.getElementById("total_proteinas").value = proteinasTotal;
 
-    if (carboIdratos)
-
-      if (carboIdratos >= 120 || qtdBebida>=3){
-        window.alert("vai consumir mais carboidratos e/ou alcool do que o desejavel");
-      }
+    if (carboIdratos >= 150 || qtdBebida>=3){
+      alert("O ideal seria consumir carboidratos em quantidade inferior a 150g, \n duas(2) ou menos bebidas alcoolicas por dia \n \n Pode optar por aumentar o exercicio fisico");
+    }
   }
 
 </script>

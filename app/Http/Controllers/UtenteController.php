@@ -20,7 +20,7 @@ class UtenteController extends Controller
     public function index()
     {
         $utentes = Utente::get();
-        return view('utente/listUtentes', compact($utentes));
+        return view('utente/listUtentes', compact('utentes'));
     }
 
     /**
