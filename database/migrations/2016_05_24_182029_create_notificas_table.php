@@ -14,10 +14,12 @@ class CreateNotificasTable extends Migration
     {
         Schema::create('notificas', function (Blueprint $table) {
             $table->increments('id');
-            $table->('notificacao');
-            $table->('user_id');
-            $table->('medico_id');
+            $table->string('notificacao');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+
 
             // TODO
             // acrescentar foreign medico e utente

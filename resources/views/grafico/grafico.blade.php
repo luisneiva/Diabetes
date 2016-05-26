@@ -4,17 +4,38 @@
 <script src="/chart.js/dist/Chart.js"></script>
 
 <script type="text/javascript">
-    window.onload = function(){
+    var users = {!! App\User::get() !!}
+    var curUser =""
+    var user ={{ $user }}
+
+            function myFunction() {
+            console.log('passa');
+            for (var i = 0; i < users.length; i++) {
+
+                if(users[i].id === user)  {
+                          curUser = users[i].email;
+                   console.log(user);
+                }
+            }
+        document.getElementById("nome").innerHTML = curUser;
+        console.log(curUser);
+        }
+
+         window.onload = function(){
         var ctx = $("#myChart");
+        myFunction();
     }
 </script>
 
 <div class="container">
+    <p>Utente: <span id="nome"></span></p>
+    <hr>
     <div class="box-chart">
       <canvas id="myChart" style="width:100%;"></canvas>
     </div>
 
     <script type="text/javascript">
+
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
             type: 'line',
@@ -179,10 +200,11 @@
             }
         });
     </script>
+    <hr>
     <!-- Adicionar Notificação-->
-    <a href="{{ route('notifica.create', [$registo->user_id]) }}" class="btn btn-success">Enviar Notificação</a>
+    <a href="{{ route('notifica.show', [$registo->user_id]) }}" class="btn btn-success">Enviar Notificação</a>
      <!-- Adicionar Sugestão-->
-    <a href="{{ route('sugere.create', [$registo->user_id]) }}" class="btn btn-primary">Enviar Sugestão</a>
+    <a href="{{ route('sugere.show', [$registo->user_id]) }}" class="btn btn-primary">Enviar Sugestão</a>
 
 </div>
 

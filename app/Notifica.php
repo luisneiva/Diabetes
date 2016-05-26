@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notifica extends Model
 {
-    'notificacao',
-    'user_id',
-    'medico_id'
+   protected $fillable = [
+      'notificacao',
+      'user_id'
+    ];
 }

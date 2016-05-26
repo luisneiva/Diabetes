@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sugere extends Model
 {
-    protected $fillable = [
-       'sugestao',
-      'medico_id',
+ protected $fillable = [
+      'sugestao',
       'user_id'
-
+    ];
 }

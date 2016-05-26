@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sugestao extends Model
 {
+  protected $fillable = [
       'sugestao',
-      'medico_id',
       'user_id'
     ];
 }

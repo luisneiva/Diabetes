@@ -30,10 +30,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('grafico', 'GraficoController@index');
 
     //Notificações
-    Route::resource('notifica', 'NotificaController@index');
+    Route::resource('notifica', 'NotificaController');
 
     //Sugestões
-    Route::resource('sugere', 'SugereController@index');
+    Route::resource('sugere', 'SugereController');
 
 
 

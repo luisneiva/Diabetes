@@ -15,4 +15,5 @@ class RegistoDiario extends Model
         'carboidratos_gastos',
         'proteinas_gastas',
         'user_id'
-    ];}
+    ];
+}

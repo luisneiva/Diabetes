@@ -57,7 +57,7 @@ console.log(caloriasGastas);
                             <div class="col-md-6">
                                 <div class="form-group">
                                     {!! Form::label('tempo_gasto', 'Tempo de exercicio (min) :') !!}
-                                    {!! Form::text('tempo_gasto', 0, ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
+                                    {!! Form::text('tempo_gasto', 0, ['class'=> 'form-control', 'onmouseout'=>'getValue()']) !!}
                                 </div>
                             </div>
                         </div>

@@ -61,6 +61,7 @@ class ExercicioDiarioController extends Controller
     public function store(Request $request)
     {
         $exercicioDiario = ExercicioDiario::create(Input::all());
+
         return redirect()->route('exerDiario.create');
     }
 

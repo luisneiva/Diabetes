@@ -17,22 +17,22 @@ class MedicoTableSeeder extends Seeder
           DB::table('medicos')->insert([
               'nome' => 'Antonio Magalhaes',
               'num_cedula' => 111111,
-              'created_at' => 12345,
-              'updated_at' => 12345,
+              'created_at' => '12345',
+              'updated_at' => '12345'
           ]);
 
           DB::table('medicos')->insert([
              'nome' => 'Luis Neiva',
              'num_cedula' => 222222,
-             'created_at' => 12345,
-             'updated_at' => 12345,
+             'created_at' => '12345',
+             'updated_at' => '12345'
           ]);
 
           DB::table('medicos')->insert([
              'nome' => 'Maria Marreiros',
              'num_cedula' => 333333,
-             'created_at' => 12345,
-             'updated_at' => 12345,
+             'created_at' => '12345',
+             'updated_at' => '12345'
           ]);
 
 

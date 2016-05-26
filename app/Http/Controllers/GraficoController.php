@@ -8,7 +8,8 @@ use App\Http\Requests;
 
 use App\Refeicao;
 use App\RegistoDiario;
-use App\ExercicioDiario;
+use Auth;
+Use App\User;
 
 class GraficoController extends Controller
 {
@@ -20,10 +21,13 @@ class GraficoController extends Controller
 
     public function index()
     {
-      $registos = RegistoDiario::all();
+//$users = DB::table('users')->select('name', 'email as user_email')->get();
 
 
-      return view('grafico.grafico', compact('registos'));
+      $registos = RegistoDiario::where('user_id','=', Auth::user()->id)->get();
+      $user = Auth::user()->id;
+
+      return view('grafico.grafico', compact('registos', 'user'));
     }
 
     /**

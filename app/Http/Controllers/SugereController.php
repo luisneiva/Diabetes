@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
+
+use App\Sugere;
 
 class SugereController extends Controller
 {
@@ -25,7 +28,7 @@ class SugereController extends Controller
      */
     public function create()
     {
-        //
+            //
     }
 
     /**
@@ -36,7 +39,8 @@ class SugereController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $sugere = Sugere::create(Input::all());
+         return redirect()->back();
     }
 
     /**
@@ -47,7 +51,8 @@ class SugereController extends Controller
      */
     public function show($id)
     {
-        //
+        // este metodo é usado para criar uma sugereção
+        return view('sugere/newSugere', compact('id'));
     }
 
     /**
@@ -58,8 +63,8 @@ class SugereController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+         $sugere = Sugere::findOrFail($id);
+         return view ('sugere/editSugere', compact('sugere'));    }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +75,10 @@ class SugereController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sugere = Sugere::find($id);
+        $sugere->fill(Input::all());
+        $sugere ->save();
+        return redirect()->route('sugere.index');
     }
 
     /**
