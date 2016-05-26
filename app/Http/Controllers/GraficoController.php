@@ -13,6 +13,8 @@ Use App\User;
 
 class GraficoController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -24,10 +26,10 @@ class GraficoController extends Controller
 //$users = DB::table('users')->select('name', 'email as user_email')->get();
 
 
-      $registos = RegistoDiario::where('user_id','=', Auth::user()->id)->get();
-      $user = Auth::user()->id;
+     // $registos = RegistoDiario::where('user_id','=', Auth::user()->id)->get();
+     //)) $user = Auth::user()->id;
 
-      return view('grafico.grafico', compact('registos', 'user'));
+      //return view('grafico.grafico', compact('registos', 'user'));
     }
 
     /**
@@ -59,7 +61,10 @@ class GraficoController extends Controller
      */
     public function show($id)
     {
-        //
+
+         $registos = RegistoDiario::where('user_id','=', $id)->get();
+
+      return view('grafico.grafico', compact('registos', 'id'));
     }
 
     /**
@@ -85,6 +90,22 @@ class GraficoController extends Controller
         //
     }
 
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function grafUtente(user $id)
+    {
+        dd('user' , $id);
+         $registos = RegistoDiario::where('user_id','=', 'user')->get();
+            dd($registos);
+      return view('grafico.grafico', compact('registos', 'id'));
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -95,4 +116,5 @@ class GraficoController extends Controller
     {
         //
     }
+
 }

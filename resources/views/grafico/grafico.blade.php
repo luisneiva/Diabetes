@@ -4,20 +4,58 @@
 <script src="/chart.js/dist/Chart.js"></script>
 
 <script type="text/javascript">
-    var users = {!! App\User::get() !!}
-    var curUser =""
-    var user ={{ $user }}
+    var utentes = {!! App\Utente::get() !!}
+    var curUser = ""
+    var sexo = ""
+    var tipo = ""
+    var tratamento = ""
+    var peso = 0
+    var user ={{ $id }}
+
+
+
+     function normalizeValue (value) {
+    if (isNaN(value) || value === '' || value < 1) { return 0 }
+
+    return parseInt(value)
+  }
 
             function myFunction() {
-            console.log('passa');
-            for (var i = 0; i < users.length; i++) {
 
-                if(users[i].id === user)  {
-                          curUser = users[i].email;
-                   console.log(user);
+
+            for (var i = 0; i < utentes.length; i++) {
+                if(utentes[i].user_id === user)  {
+
+                          curUser = utentes[i].fullname;
+                          sexo = utentes[i].gender;
+                          if(sexo === "f"){
+                            sexo = "Feminino"
+                        }else{
+                            sexo = "Masculino"
+                        }
+                          tipo = utentes[i].type;
+                           if(tipo === "type1"){
+                            tipo = "Diabetes Tipo I"
+                        }else{
+                            tipo = "Diabetes tipo II"
+                        }
+                          tratamento = utentes[i].treatmenttype;
+
+                           if(tratamento === "oral"){
+                            tratamento = "Oral"
+                        }else{
+                            tratamento = "Insulina injectada"
+                        }
+                          peso = utentes[i].weight + " Kg";
+
+
                 }
             }
         document.getElementById("nome").innerHTML = curUser;
+        document.getElementById("sexo").innerHTML = sexo;
+        document.getElementById("tipo").innerHTML = tipo;
+        document.getElementById("trata").innerHTML = tratamento;
+        document.getElementById("peso").innerHTML = peso;
         console.log(curUser);
         }
 
@@ -28,7 +66,14 @@
 </script>
 
 <div class="container">
-    <p>Utente: <span id="nome"></span></p>
+    <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <p>Utente: <span id="nome"></span></p>
+        <p>Sexo: <span id="sexo"></span></p>
+        <p>Tipo: <span id="tipo" ></span></p>
+        <p>Tratamento: <span id="trata"></span></p>
+        <p>Peso: <span id="peso" >0</span></p>
+    </div>
+
     <hr>
     <div class="box-chart">
       <canvas id="myChart" style="width:100%;"></canvas>
@@ -202,9 +247,9 @@
     </script>
     <hr>
     <!-- Adicionar Notificação-->
-    <a href="{{ route('notifica.show', [$registo->user_id]) }}" class="btn btn-success">Enviar Notificação</a>
+    <a href="{{ route('notifica.show', [$id]) }}" class="btn btn-success">Enviar Notificação</a>
      <!-- Adicionar Sugestão-->
-    <a href="{{ route('sugere.show', [$registo->user_id]) }}" class="btn btn-primary">Enviar Sugestão</a>
+    <a href="{{ route('sugere.show', [$id]) }}" class="btn btn-primary">Enviar Sugestão</a>
 
 </div>
 
