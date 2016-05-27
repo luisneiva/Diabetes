@@ -6,8 +6,8 @@
     <div class="panel-heading"><h2>{{ Auth::user()->shortName }}</h2></div>
     <div class="container">
         <h2>Orientação</h2>
-        <a type="button" class="btn btn-primary">Inserir Refeição</a>
-        <a type="button" class="btn btn-primary">Todas as Refeições</a>
+        <a type="button" class="btn btn-primary" href="{{ url('/refeicao/create') }}">Inserir Refeição</a>
+        <a type="button" class="btn btn-primary" href="{{ url('/refeicao') }}">Todas as Refeições</a>
         <a type="button" class="btn btn-success">Menu Principal</a>
     </div>
 

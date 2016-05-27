@@ -69,14 +69,16 @@ Route::group(['middleware' => 'auth'], function () {
         //Página de refeições do utente
         Route::get('pageRefeicao', 'RefeicaoController@pageRefeicao');
 
+        // Refeicao
+        Route::resource('refeicao', 'RefeicaoController');
+
         // AQUI
     });
 
     // permite submeter o formulario do registo do utente (initial)
     Route::resource('utente', 'UtenteController', ['only' => 'store']);
 
-    // Refeicao
-    Route::resource('refeicao', 'RefeicaoController');
+
 
 });
 
