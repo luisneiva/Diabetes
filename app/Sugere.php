@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sugestao extends Model
+class Sugere extends Model
 {
-  protected $fillable = [
+ protected $fillable = [
       'sugestao',
-      'user_id'
+      'user_id',
+      'check'
     ];
 }

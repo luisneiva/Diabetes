@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Refeicao extends Model
 {
      protected $fillable = [
+        'data',
+        'refeicao',
         'alimento_id',
         'bebida_id',
         'qtd_bebida',

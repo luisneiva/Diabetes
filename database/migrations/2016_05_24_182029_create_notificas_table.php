@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSugestaosTable extends Migration
+class CreateNotificasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,18 @@ class CreateSugestaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sugestaos', function (Blueprint $table) {
+        Schema::create('notificas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sugestao');
+            $table->string('notificacao');
             $table->integer('user_id')->unsigned();
+            $table->boolean('check');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+
+
+            // TODO
+            // acrescentar foreign medico e utente
         });
     }
 
@@ -29,6 +34,6 @@ class CreateSugestaosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('sugestaos');
+        Schema::drop('notificas');
     }
 }

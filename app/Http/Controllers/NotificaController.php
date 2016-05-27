@@ -6,30 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Refeicao;
-use App\RegistoDiario;
-use Auth;
-Use App\User;
+use Illuminate\Support\Facades\Input;
 
-class GraficoController extends Controller
+use App\Notifica;
+
+class NotificaController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-//$users = DB::table('users')->select('name', 'email as user_email')->get();
-
-
-     // $registos = RegistoDiario::where('user_id','=', Auth::user()->id)->get();
-     //)) $user = Auth::user()->id;
-
-      //return view('grafico.grafico', compact('registos', 'user'));
+        //
     }
 
     /**
@@ -39,7 +29,7 @@ class GraficoController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -50,7 +40,8 @@ class GraficoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $notifica = Notifica::create(Input::all());
+        return redirect()->back();
     }
 
     /**
@@ -61,10 +52,8 @@ class GraficoController extends Controller
      */
     public function show($id)
     {
-
-         $registos = RegistoDiario::where('user_id','=', $id)->get();
-
-      return view('grafico.grafico', compact('registos', 'id'));
+        // este metodo é usado para criar uma notificação
+        return view('notifica/newNotifica', compact('id'));
     }
 
     /**
@@ -75,8 +64,9 @@ class GraficoController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+         $notifica = Notifica::findOrFail($id);
+         return view ('notifica/editNotifica', compact('notifica'));
+     }
 
     /**
      * Update the specified resource in storage.
@@ -87,24 +77,11 @@ class GraficoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $notifica = Notifica::find($id);
+        $notifica->fill(Input::all());
+        $notifica ->save();
+        return redirect()->route('notifica.index');
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function grafUtente(user $id)
-    {
-        dd('user' , $id);
-         $registos = RegistoDiario::where('user_id','=', 'user')->get();
-            dd($registos);
-      return view('grafico.grafico', compact('registos', 'id'));
-    }
-
 
     /**
      * Remove the specified resource from storage.
@@ -116,5 +93,4 @@ class GraficoController extends Controller
     {
         //
     }
-
 }

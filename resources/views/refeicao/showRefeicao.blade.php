@@ -20,15 +20,23 @@
       <div class="panel-heading">Refeição</div>
       <div class="panel-body">
 
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-             {!! Form::label('username', 'User:') !!}
-             {!! Form::input('username', $user->username, null , ['class'=> 'form-control','readonly' =>'readonly', 'placeholder' => $user->username]) !!}
-           </div>
-         </div>
-       </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            {!! Form::label('username', 'User:') !!}
+            {!! Form::input('username', $user->username, null , ['class'=> 'form-control','readonly' =>'readonly', 'placeholder' => $user->username]) !!}
+          </div>
+        </div>
+      </div>
 
+      <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('refeicao', 'Refeição:') !!}
+                            {!! Form::text('refeicao', $refeicoes->refeicao, null , ['class'=> 'form-control','readonly' =>'readonly']) !!}
+                        </div>
+                    </div>
+                </div>
 
        <div class="row">
         <div class="col-md-6">

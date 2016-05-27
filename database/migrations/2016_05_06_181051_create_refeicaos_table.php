@@ -15,6 +15,8 @@ class CreateRefeicaosTable extends Migration
         Schema::create('refeicaos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->date('data');
+            $table->string('refeicao');
             $table->integer('alimento_id')->unsigned();
             $table->integer('bebida_id')->unsigned();
             $table->integer('qtd_bebida');

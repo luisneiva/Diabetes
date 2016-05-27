@@ -15,8 +15,8 @@ class CreateNotificacaosTable extends Migration
         Schema::create('notificacaos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('mensagem');
-            $table->integer('medico_id')->unsigned();
             $table->integer('user_id')->unsigned();
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

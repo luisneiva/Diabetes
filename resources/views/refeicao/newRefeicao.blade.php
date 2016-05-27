@@ -54,23 +54,23 @@
       }
     }
 
-
-
-
-
     document.getElementById("total_carboidratos").value = carboIdratos;
     document.getElementById("total_calorias").value = calorias;
     document.getElementById("total_proteinas").value = proteinas;
 
-    if (carboIdratos)
+    if (carboIdratos >= 150 || qtdBebida>=3){
+      alert("O ideal seria consumir carboidratos em quantidade inferior a 150g, \n duas(2) ou menos bebidas alcoolicas por dia \n \n Pode optar por aumentar o exercicio fisico");
+    }
 
-      if (carboIdratos >= 120 || qtdBebida>=3){
-        window.alert("vai consumir mais carboidratos e/ou alcool do que o desejavel");
-      }
   }
 
 </script>
 
+@if (Session::has('message'))
+    <div class="alert alert-danger">
+        {{Session::get('message')}}
+    </div>
+    @endif
 
 <div class="container">
 <h1 class="text-center">Registo de Refeições</h1>
@@ -83,6 +83,15 @@
             <div class="panel-heading">Refeição</div>
             <div class="panel-body">
                 {!! Form::hidden('user_id', Auth::user()->id) !!}
+                {!! Form::hidden('data', $data) !!}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('refeicao', 'Refeição:') !!}
+                            {!! Form::select('refeicao', ['Peq Almoco' =>'Peq Almoco', 'Almoco' => 'Almoco', 'Lanche' => 'Lanche', 'Jantar' =>'Jantar'], null , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
+                        </div>
+                    </div>
+                </div>
 
                  <div class="row">
                     <div class="col-md-6">
@@ -97,7 +106,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {!! Form::label('qtd_alimento', 'Quantidade de alimento (100g):') !!}
-                            {!! Form::text('qtd_alimento', 0 , ['class'=> 'form-control', 'onchange'=>'getValue()']) !!}
+                            {!! Form::text('qtd_alimento', 0 , ['class'=> 'form-control','onchange'=>'getValue()']) !!}
                         </div>
                     </div>
                 </div>

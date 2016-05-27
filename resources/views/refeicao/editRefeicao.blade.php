@@ -55,18 +55,13 @@
     }
 
 
+    document.getElementById("total_carboidratos").value = carboIdratos.;
+    document.getElementById("total_calorias").value = calorias.;
+    document.getElementById("total_proteinas").value = proteinasTotal;
 
-
-
-    document.getElementById("total_carboidratos").value = carboIdratos;
-    document.getElementById("total_calorias").value = calorias;
-    document.getElementById("total_proteinas").value = proteinas;
-
-    if (carboIdratos)
-
-      if (carboIdratos >= 120 || qtdBebida>=3){
-        window.alert("vai consumir mais carboidratos e/ou alcool do que o desejavel");
-      }
+    if (carboIdratos >= 150 || qtdBebida>=3){
+      alert("O ideal seria consumir carboidratos em quantidade inferior a 150g, \n duas(2) ou menos bebidas alcoolicas por dia \n \n Pode optar por aumentar o exercicio fisico");
+    }
   }
 
 </script>
@@ -83,6 +78,16 @@
             <div class="panel-heading">Refeição</div>
             <div class="panel-body">
                 {!! Form::hidden('user_id', Auth::user()->id) !!}
+                {!! Form::hidden('data', $data) !!}
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! Form::label('refeicao', 'Refeição:') !!}
+                            {!! Form::select('refeicao', ['Peq Almoco' =>'Peq Almoco', 'Almoco' => 'Almoco', 'Lanche' => 'Lanche', 'Jantar' =>'Jantar'], null , ['class'=> 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
 
                  <div class="row">
                     <div class="col-md-6">

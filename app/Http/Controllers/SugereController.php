@@ -5,31 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
-use App\Refeicao;
-use App\RegistoDiario;
-use Auth;
-Use App\User;
+use App\Sugere;
 
-class GraficoController extends Controller
+class SugereController extends Controller
 {
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-//$users = DB::table('users')->select('name', 'email as user_email')->get();
-
-
-     // $registos = RegistoDiario::where('user_id','=', Auth::user()->id)->get();
-     //)) $user = Auth::user()->id;
-
-      //return view('grafico.grafico', compact('registos', 'user'));
+        //
     }
 
     /**
@@ -39,7 +28,7 @@ class GraficoController extends Controller
      */
     public function create()
     {
-        //
+            //
     }
 
     /**
@@ -50,7 +39,8 @@ class GraficoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $sugere = Sugere::create(Input::all());
+         return redirect()->back();
     }
 
     /**
@@ -61,10 +51,8 @@ class GraficoController extends Controller
      */
     public function show($id)
     {
-
-         $registos = RegistoDiario::where('user_id','=', $id)->get();
-
-      return view('grafico.grafico', compact('registos', 'id'));
+        // este metodo é usado para criar uma sugereção
+        return view('sugere/newSugere', compact('id'));
     }
 
     /**
@@ -75,8 +63,8 @@ class GraficoController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+         $sugere = Sugere::findOrFail($id);
+         return view ('sugere/editSugere', compact('sugere'));    }
 
     /**
      * Update the specified resource in storage.
@@ -87,24 +75,11 @@ class GraficoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sugere = Sugere::find($id);
+        $sugere->fill(Input::all());
+        $sugere ->save();
+        return redirect()->route('sugere.index');
     }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function grafUtente(user $id)
-    {
-        dd('user' , $id);
-         $registos = RegistoDiario::where('user_id','=', 'user')->get();
-            dd($registos);
-      return view('grafico.grafico', compact('registos', 'id'));
-    }
-
 
     /**
      * Remove the specified resource from storage.
@@ -116,5 +91,4 @@ class GraficoController extends Controller
     {
         //
     }
-
 }

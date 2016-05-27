@@ -8,7 +8,6 @@ class Notificacao extends Model
 {
     protected $fillable = [
         'mensagem',
-        'user_id',
-        'medico_id'
+        'user_id'
     ];
 }
