@@ -24,7 +24,7 @@
                     <div class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}">
                         <label for="fullname" class="sr-only">Full Name</label>
 
-                        <input type="text" class="form-control" id="fullname" name="fullname" value="{{ old('email') }}" placeholder="Full Name">
+                        <input type="text" class="form-control" id="fullname" name="fullname" value="{{ old('fullname') }}" placeholder="Full Name">
 
                         @if($errors->has('fullname'))
                             <span class="help-block">

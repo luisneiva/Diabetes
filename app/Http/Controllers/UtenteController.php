@@ -103,4 +103,12 @@ class UtenteController extends Controller
         $utente->delete();
         return redirect()->back();
     }
+
+    /**
+     * Rota para a página dicas
+     */
+    public function dicas()
+    {
+        return view('dicas');
+    }
 }

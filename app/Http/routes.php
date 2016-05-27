@@ -43,6 +43,12 @@ Route::group(['middleware' => 'auth'], function () {
         // Utente
         Route::resource('utente', 'UtenteController');
 
+        // Registo diario
+        Route::get('dicas', 'UtenteController@dicas');
+
+        //Página de refeições do utente
+        Route::get('pageRefeicao', 'RefeicaoController@pageRefeicao');
+
         // AQUI
     });
 
@@ -51,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Refeicao
     Route::resource('refeicao', 'RefeicaoController');
+
 });
 
 // Medico

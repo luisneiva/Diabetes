@@ -144,4 +144,12 @@ class RefeicaoController extends Controller
     {
         //
     }
+
+    /**
+     * Página de refeições
+     */
+    public function pageRefeicao()
+    {
+        return view('refeicao/pageRefeicao');
+    }
 }
