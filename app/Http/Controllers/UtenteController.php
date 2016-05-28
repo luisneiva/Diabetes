@@ -65,7 +65,7 @@ class UtenteController extends Controller
         $user = Auth::user()->id;
         $registos = RegistoDiario::where('user_id', $user)->orderBy('created_at', 'DESC')->take(5)->get();
 
-        return view('utente/showUtente', compact('utente', 'registos'));
+        return view('utente/showUtente', compact('utente', 'registos', 'user'));
     }
 
     /**
