@@ -12,6 +12,8 @@ use App\Refeicao;
 use App\Bebida;
 use App\Alimento;
 use App\User;
+use App\RefAlimento;
+use App\RefBebida;
 use Auth;
 use Carbon\Carbon;
 use Alert;
@@ -26,7 +28,7 @@ class RefeicaoController extends Controller
     public function index()
     {
         $actUser = Auth::user()->username;
-        $refeicoes = Refeicao::get();
+        $refeicoes = Auth::user()->refeicoes()->orderBy('created_at', 'DESC')->take(5)->get();
         $alimentos = Alimento::get();
         $bebidas = Bebida::get();
 
@@ -70,33 +72,44 @@ class RefeicaoController extends Controller
      */
     public function store(Request $request)
     {
-
-
+        // obtem a data de hoje
         $datas = explode(" ", Carbon::today());
-
-
         $data = $datas[0];
 
-        $refeicaos = Refeicao::get();
+        // verifica se já existe uma entrada para esta refeição
+        $count = Auth::user()->refeicoes()->where('data', $data)->where('refeicao', $request->get('refeicao'))->count();
 
-/*
-        foreach ($refeicaos as $refeicao){
-
-            $dataRef = explode(" ", $request->data);
-            $dat = $dataRef[0];
-
-            if(($refeicao->refeicao === $request->refeicao)){
-                if($refeicao->data === $data){
-
-                    return redirect('refeicao/create')->with('message','não pode criar refeiçoes repetidas pra o mesmo dia... pode editar ');
-
-                }
-
-            }
+        if ($count > 0) {
+            return redirect()
+                ->route('refeicao.create')
+                ->with('msg', 'Refeicao já registada!');
         }
-*/
 
-        $refeicao = Refeicao::create(Input::all());
+        $refeicao = Refeicao::create([
+            'user_id' => Auth::user()->id,
+            'data' => $data,
+            'refeicao' => $request->get('refeicao'),
+            'total_carboidratos' => $request->get('total_carboidratos'),
+            'total_calorias' => $request->get('total_calorias'),
+            'total_proteinas' => $request->get('total_proteinas')
+        ]);
+
+        foreach ($request->get('bebida_id') as $key => $value) {
+            $refBebida = RefBebida::create([
+                'refeicao_id' => $refeicao->id ,
+                'bebida_id' => $value,
+                'qtd' => $request->get('qtd_bebida')[$key]
+            ]);
+        }
+
+         foreach ($request->get('alimento_id') as $key => $value) {
+            $refAlimento = RefAlimento::create([
+                'refeicao_id' => $refeicao->id ,
+                'alimento_id' => $value,
+                'qtd' => $request->get('qtd_alimento')[$key]
+            ]);
+        }
+
         return redirect()->route('refeicao.create');
     }
 
@@ -182,8 +195,20 @@ class RefeicaoController extends Controller
     /**
      * Página de refeições
      */
-    public function pageRefeicao()
+    public function pageRefeicao(Request $request)
     {
-        return view('refeicao/pageRefeicao');
+        // get current user
+        $user = Auth::user();
+
+        if ($user->type === 1 && in_array($request->get('utente'), $user->getUtentesIds())) { // medico
+            $user = User::find($request->get('utente'));
+        } else if ($user->type === 1 && !in_array($request->get('utente'), $user->getUtentesIds())) { // medico, mas não deste utente
+            return redirect()->back();
+        }
+
+        // obtem as refeições
+        $refeicoes = $user->refeicoes()->orderBy('created_at', 'DESC')->take(5)->get();
+
+        return view('refeicao/pageRefeicao', compact('refeicoes', 'user'));
     }
 }

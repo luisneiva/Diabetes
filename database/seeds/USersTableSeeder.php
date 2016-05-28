@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
+
+class UsersTableSeeder extends Seeder {
  /**
      * Run the database seeds.
      *
@@ -15,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 
        Model::unguard();
 
-         DB::table('utentes')->insert([
+         DB::table('users')->insert([
             'email' => 'admin@admin.admin',
             'type' => 0,
             'password' => '$2y$10$4MflYO6WbtwjGbJFNhs6Ke9MtymyKsCP9yBHDSNzoG5g5o9xnlx5u',
@@ -24,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
             'updated_at' => '2016-05-24 15:51:03'
         ]);
 
-         DB::table('utentes')->insert([
+         DB::table('users')->insert([
             'email' => 'antonio_magalhaes1@hotmail.com',
             'type' => 0,
             'password' => '$2y$10$xkCSS8osnxZ0i4R4z8bUdeoDHhgohIrafLQ76F7TtGPe/X/ROGYNK',
@@ -33,7 +35,7 @@ use Illuminate\Database\Eloquent\Model;
             'updated_at' => '2016-05-24 15:51:03'
         ]);
 
-         DB::table('utentes')->insert([
+         DB::table('users')->insert([
             'email' => 'user@user.com',
             'type' => 0,
             'password' => '$2y$10$2wqBNghWXYeC1evyLT/72OokBbuIbNmgKPVAEwudoNoWjh.3HRzX6',
@@ -42,7 +44,7 @@ use Illuminate\Database\Eloquent\Model;
             'updated_at' => '2016-05-24 15:51:03'
         ]);
 
-         DB::table('utentes')->insert([
+         DB::table('users')->insert([
             'email' => 'utilizador@user.com',
             'type' => 0,
             'password' => '$2y$10$01yQ.3RiiYEqyV4doOgipe3VDSUTtxNuJ/ys/2sNmlsL.GjA3RwY2',
@@ -51,7 +53,7 @@ use Illuminate\Database\Eloquent\Model;
             'updated_at' => '2016-05-24 15:51:03'
         ]);
 
-         DB::table('utentes')->insert([
+         DB::table('users')->insert([
             'email' => 'antonio@admin.com',
             'type' => 0,
             'password' => '$2y$10$Aqrg5kua9b0zG0s2dr4SxulYjH0M9dq8GSGiSsMNpugWMJrWkzPyG',
@@ -60,7 +62,7 @@ use Illuminate\Database\Eloquent\Model;
             'updated_at' => '2016-05-24 15:51:03'
         ]);
 
-         DB::table('utentes')->insert([
+         DB::table('users')->insert([
             'email' => 'marinho@magalhaes.net',
             'type' => 0,
             'password' => '$2y$10$dh4uY6cxszsQ9ZkLplv6M.YgLFPPPSpfp3C8RAj66eZRtSNO78t7S',
@@ -69,3 +71,4 @@ use Illuminate\Database\Eloquent\Model;
             'updated_at' => '2016-05-24 15:51:03'
         ]);
     }
+}

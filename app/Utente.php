@@ -14,4 +14,9 @@ class Utente extends Model
     protected $fillable = [
         'username', 'fullname', 'gender', 'medico_id', 'type', 'treatmenttype', 'weight', 'user_id'
     ];
+
+    public function medico()
+    {
+      return $this->belongsTo(Medico::class);
+    }
 }

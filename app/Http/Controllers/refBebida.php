@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-
-use Illuminate\Support\Facades\Input;
-use App\Medico;
-use App\RegistoDiario;
-
-class MedicoController extends Controller
+class refBebida extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +15,7 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        // $medicos = Medico::get();
-        // return view('medico/listMedicos', compact('medicos'));
-        return redirect()->route('medico.show', Auth::user()->id);
+        //
     }
 
     /**
@@ -34,7 +25,7 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        return view ('medico.newMedico');
+        //
     }
 
     /**
@@ -45,8 +36,7 @@ class MedicoController extends Controller
      */
     public function store(Request $request)
     {
-    $medico = Medico::create(Input::all());
-    return redirect()->route('medico');
+        //
     }
 
     /**
@@ -57,9 +47,7 @@ class MedicoController extends Controller
      */
     public function show($id)
     {
-        $alertas = RegistoDiario::alertas();
-
-        return view('medico/showMedico', compact('alertas'));
+        //
     }
 
     /**
@@ -70,8 +58,7 @@ class MedicoController extends Controller
      */
     public function edit($id)
     {
-         $medico = Medico::findOrFail($id);
-        return view ('medico/editMedico', compact('medico'));
+        //
     }
 
     /**
@@ -83,11 +70,7 @@ class MedicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $medico = Medico::find($id);
-        $medico->fill(Input::all());
-        $medico ->save();
-        return redirect()->route('medico.index');
-
+        //
     }
 
     /**
@@ -98,9 +81,6 @@ class MedicoController extends Controller
      */
     public function destroy($id)
     {
-
-        $medico = Medico::find('$id');
-        $medico->delete();
-        return redirect()->back();
+        //
     }
 }

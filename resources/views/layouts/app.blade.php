@@ -54,18 +54,22 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->shortName }} <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    @if(Auth::user()->utente !== null)
-                                    <a href="{{ url('/utente/' . Auth::user()->utente->id) }}"><i class="fa fa-btn fa-sign-out"></i>Minha conta</a>
-                                    @endif
-                                </li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                                </li>
+                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->shortName }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @if(Auth::user()->utente !== null)
+                            <li>
+                                <a href="{{ url('/utente/' . Auth::user()->utente->id) }}"><i class="fa fa-btn fa-sign-out"></i>Minha conta</a>
+                            </li>
+                            @endif
+
+                            @if(Auth::user()->type === 1)
+                            <li><a href="{{ url('/medico') }}"><i class="fa fa-btn fa-sign-out"></i>Minha conta</a></li>
+                            @endif
+
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        </ul>
+                        </li>
                     @endif
                 </ul>
             </div>

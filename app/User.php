@@ -47,4 +47,26 @@ class User extends Authenticatable
 
         return $this->utente->fullname;
     }
+
+    public function utentes()
+    {
+        return $this->hasMany(Utente::class, 'medico_id');
+    }
+
+    public function refeicoes()
+    {
+        return $this->hasMany(Refeicao::class);
+    }
+
+    public function exercicios()
+    {
+        return $this->hasMany(ExercicioDiario::class);
+    }
+
+    public function getUtentesIds()
+    {
+        return $this->utentes()->get()->map(function ($item, $key) {
+            return $item->user_id;
+        })->all();
+    }
 }

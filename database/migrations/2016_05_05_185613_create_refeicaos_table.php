@@ -17,21 +17,14 @@ class CreateRefeicaosTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->date('data');
             $table->string('refeicao');
-            $table->integer('alimento_id')->unsigned();
-            $table->integer('bebida_id')->unsigned();
-            $table->integer('qtd_bebida');
-            $table->integer('qtd_alimento');
             $table->double('total_carboidratos');
             $table->double('total_calorias');
             $table->double('total_proteinas');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('alimento_id')->references('id')->on('alimentos');
-            $table->foreign('bebida_id')->references('id')->on('bebidas');
-        });
-    }
-
+});
+}
     /**
      * Reverse the migrations.
      *

@@ -42,9 +42,6 @@ Route::group(['middleware' => 'auth'], function () {
     //Utente
     Route::resource('utente', 'UtenteController');
 
-
-
-
     Route::get('/home', function () {
         $user = Auth::user();
 
@@ -57,23 +54,30 @@ Route::group(['middleware' => 'auth'], function () {
         }
     });
 
+    Route::group(['middleware' => 'isMedico'], function () {
+        Route::resource('utente', 'UtenteController');
+
+        //Grafico do utente
+        Route::resource('grafico', 'GraficoController');
+    });
+
     // funcionalidades dos utentes
     Route::group(['middleware' => 'newUtente'], function () {
 
         // Utente
-        Route::resource('utente', 'UtenteController');
+        Route::resource('utente', 'UtenteController', ['except' => 'index']);
 
         // Registo diario
         Route::get('dicas', 'UtenteController@dicas');
-
-        //Página de refeições do utente
-        Route::get('pageRefeicao', 'RefeicaoController@pageRefeicao');
 
         // Refeicao
         Route::resource('refeicao', 'RefeicaoController');
 
         // AQUI
     });
+
+    //Página de refeições do utente
+    Route::get('pageRefeicao', 'RefeicaoController@pageRefeicao');
 
     // permite submeter o formulario do registo do utente (initial)
     Route::resource('utente', 'UtenteController', ['only' => 'store']);

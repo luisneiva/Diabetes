@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medico extends Model
 {
-   protected $fillable = [
+  protected $fillable = [
         'nome',
         'num_cedula'
-    ];
+  ];
 }
