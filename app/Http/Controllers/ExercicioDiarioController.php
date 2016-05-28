@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Input;
 
 use App\ExercicioDiario;
 use App\Exercicio;
+use Auth;
 use Carbon\Carbon;
 
 class ExercicioDiarioController extends Controller
@@ -36,7 +37,9 @@ class ExercicioDiarioController extends Controller
     public function create()
     {
 
-        $data = Carbon::today();
+         // obtem a data de hoje
+        $datas = explode(" ", Carbon::today());
+        $data = $datas[0];
 
         $allExercicios=null;
 
@@ -46,9 +49,9 @@ class ExercicioDiarioController extends Controller
             $allExercicios = array_add($allExercicios,$exercicio->id, $exercicio->tipo);
         }
 
+        $exercicios = Auth::user()->exercicios()->where('data', $data)->get();
 
-
-          return view('exercicioDiario.newExercicioDiario', compact('allExercicios', 'data'));
+        return view('exercicioDiario.newExercicioDiario', compact('allExercicios', 'data', 'exercicios'));
 
     }
 

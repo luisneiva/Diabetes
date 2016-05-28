@@ -19,8 +19,11 @@
 
 
         <br><br><br>
-
-        <h2>Mensagem Caso haja valores fora do normal tanto nas refeições como exercicio</h2>
+        @foreach ($registos as $registo)
+            @if( $registo->total_carboidratos_ingeridos > 150)
+                <h2> Na data {{ $registo->created_at}}  consumiu Carboidratos a mais</h2>
+            @endif
+        @endforeach
         <h2>Gráfico com os últimos dias relativamente a refeições e exercicio</h2>
 
         <div id="formAtivo">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Auth;
 
 use App\Utente;
+use App\Medico;
+use App\RegistoDiario;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,7 +21,9 @@ class UtenteController extends Controller
      */
     public function index()
     {
-        $utentes = Utente::get();
+        // obtem o medico logado
+        $utentes = Auth::user()->utentes;
+
         return view('utente/listUtentes', compact('utentes'));
     }
 
@@ -61,7 +65,10 @@ class UtenteController extends Controller
     public function show($id)
     {
         $utente = Utente::findOrFail($id);
-        return view('utente/showUtente', compact('utente'));
+        $user = Auth::user()->id;
+        $registos = RegistoDiario::where('user_id', $user)->orderBy('created_at', 'DESC')->take(5)->get();
+
+        return view('utente/showUtente', compact('utente', 'registos'));
     }
 
     /**

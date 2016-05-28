@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
+class UtenteTableSeeder extends Seeder {
  /**
      * Run the database seeds.
      *
@@ -22,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
             'medico_id' => null,
             'type' => 'type1',
             'treatmenttype' => 'oral',
-            'weigth' => 78,
+            'weight' => 78,
             'created_at' => '2016-05-24 15:51:03',
             'updated_at' => '2016-05-24 15:51:03'
         ]);
@@ -34,7 +35,7 @@ use Illuminate\Database\Eloquent\Model;
             'medico_id' => null,
             'type' => 'type2',
             'treatmenttype' => 'injection',
-            'weigth' => 89,
+            'weight' => 89,
             'created_at' => '2016-05-24 15:51:03',
             'updated_at' => '2016-05-24 15:51:03'
         ]);
@@ -46,7 +47,7 @@ use Illuminate\Database\Eloquent\Model;
             'medico_id' => null,
             'type' => 'type2',
             'treatmenttype' => 'injection',
-            'weigth' => 90,
+            'weight' => 90,
             'created_at' => '2016-05-24 15:51:03',
             'updated_at' => '2016-05-24 15:51:03'
         ]);
@@ -58,9 +59,10 @@ use Illuminate\Database\Eloquent\Model;
             'medico_id' => null,
             'type' => 'type1',
             'treatmenttype' => 'oral',
-            'weigth' => 53,
+            'weight' => 53,
             'created_at' => '2016-05-24 15:51:03',
             'updated_at' => '2016-05-24 15:51:03'
         ]);
 
     }
+}

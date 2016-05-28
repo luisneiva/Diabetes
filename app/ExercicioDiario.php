@@ -14,4 +14,14 @@ class ExercicioDiario extends Model
         'total_dia',
         'user_id'
     ];
+
+    public function exercicio()
+    {
+      return $this->belongsTo(Exercicio::class);
+    }
+
+    public function user()
+    {
+      return $this->belongsTo(User::class);
+    }
 }
