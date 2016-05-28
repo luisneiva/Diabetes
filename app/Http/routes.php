@@ -69,6 +69,9 @@ Route::group(['middleware' => 'auth'], function () {
         //Página de refeições do utente
         Route::get('pageRefeicao', 'RefeicaoController@pageRefeicao');
 
+        //Página para exercicios do utente
+        Route::get('pageExercicio', 'ExercicioController@pageExercicio');
+        
         // Refeicao
         Route::resource('refeicao', 'RefeicaoController');
 
@@ -77,9 +80,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // permite submeter o formulario do registo do utente (initial)
     Route::resource('utente', 'UtenteController', ['only' => 'store']);
-
-
-
+    
 });
 
 // Medico
