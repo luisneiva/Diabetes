@@ -66,26 +66,23 @@
     <div class="container">
     <div class="text-center">
 
-            <h1 class="text-center">Utente</h1>
+        <h1 class="text-center">Utente</h1>
 
-
-            <div class="panel-heading"><h2>{{ Auth::user()->shortName }}</h2></div>
-
-
-
-
+        <div class="btn-group">
             <a type="button" class="btn btn-default" href="{{ url('/dicas') }}">Dicas </a>
             <a type="button" class="btn btn-primary" href="{{ '/pageRefeicao' }}">Refeições</a>
             <button type="button" class="btn btn-info">Exercício</button>
             <button type="button" class="btn btn-success">Chat</button>
+        </div>
 
-    <div class="btn-group btn-group-lg" role="group" aria-label="...">
+        <div class="text-center" style="margin-top: 20px">
             <p>Utente: <span id="nome"></span></p>
             <p>Sexo: <span id="sexo"></span></p>
             <p>Tipo: <span id="tipo" ></span></p>
             <p>Tratamento: <span id="trata"></span></p>
             <p>Peso: <span id="peso" >0</span></p>
-    </div>
+        </div>
+
 
         <hr>
         <div class="box-chart">
@@ -195,8 +192,6 @@
 
         </div>
 
-=======
->>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
         <div id="formAtivo">
             {!! Form::open(['route' => ['utente.update', $utente->id], 'method' => 'PUT']) !!}
             <div class="col-md-8 col-md-offset-2">
@@ -205,22 +200,14 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
-<<<<<<< HEAD
-                                <div class="form-group">
-=======
                                 <div class="form-group text-left">
->>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('id', 'Id :') !!}
                                     {!! Form::text('id',$utente->id, ['class'=> 'form-control', 'disabled' => true]) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-<<<<<<< HEAD
-                                <div class="form-group">
-=======
                                 <div class="form-group text-left">
->>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('fullname', 'Nome do utente:') !!}
                                     {!! Form::text('fullname',$utente->fullname, ['class'=> 'form-control', 'disabled' =>
                                     true])
@@ -228,11 +215,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-<<<<<<< HEAD
-                                <div class="form-group">
-=======
                                 <div class="form-group text-left">
->>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('gender', 'Sexo::') !!}
                                     {!! Form::text('gender', $utente->gender, ['class'=> 'form-control', 'disabled' =>
                                     true])
@@ -240,11 +223,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-<<<<<<< HEAD
-                                <div class="form-group">
-=======
                                 <div class="form-group text-left">
->>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('type', 'Tipo de diabetes:') !!}
                                     {!! Form::text('type', $utente->type, ['class'=> 'form-control', 'disabled' => true])
                                     !!}
@@ -252,11 +231,7 @@
                             </div>
 
                             <div class="col-md-6">
-<<<<<<< HEAD
-                                <div class="form-group">
-=======
                                 <div class="form-group text-left">
->>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('treatmenttype', 'Tipo de tratamento:') !!}
                                     {!! Form::text('treatmenttype', $utente->treatmenttype, ['class'=> 'form-control',
                                     'disabled' => true]) !!}
@@ -271,12 +246,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-        @endsection
-=======
 
     </div>
-
-
     @endsection
->>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
