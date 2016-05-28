@@ -68,9 +68,10 @@
 
             <h1 class="text-center">Utente</h1>
 
+
             <div class="panel-heading"><h2>{{ Auth::user()->shortName }}</h2></div>
 
-            <h2>Orientação</h2>
+
 
 
             <a type="button" class="btn btn-default" href="{{ url('/dicas') }}">Dicas </a>
@@ -194,6 +195,8 @@
 
         </div>
 
+=======
+>>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
         <div id="formAtivo">
             {!! Form::open(['route' => ['utente.update', $utente->id], 'method' => 'PUT']) !!}
             <div class="col-md-8 col-md-offset-2">
@@ -202,14 +205,22 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
+<<<<<<< HEAD
                                 <div class="form-group">
+=======
+                                <div class="form-group text-left">
+>>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('id', 'Id :') !!}
                                     {!! Form::text('id',$utente->id, ['class'=> 'form-control', 'disabled' => true]) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-6">
+<<<<<<< HEAD
                                 <div class="form-group">
+=======
+                                <div class="form-group text-left">
+>>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('fullname', 'Nome do utente:') !!}
                                     {!! Form::text('fullname',$utente->fullname, ['class'=> 'form-control', 'disabled' =>
                                     true])
@@ -217,7 +228,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+<<<<<<< HEAD
                                 <div class="form-group">
+=======
+                                <div class="form-group text-left">
+>>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('gender', 'Sexo::') !!}
                                     {!! Form::text('gender', $utente->gender, ['class'=> 'form-control', 'disabled' =>
                                     true])
@@ -225,7 +240,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+<<<<<<< HEAD
                                 <div class="form-group">
+=======
+                                <div class="form-group text-left">
+>>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('type', 'Tipo de diabetes:') !!}
                                     {!! Form::text('type', $utente->type, ['class'=> 'form-control', 'disabled' => true])
                                     !!}
@@ -233,7 +252,11 @@
                             </div>
 
                             <div class="col-md-6">
+<<<<<<< HEAD
                                 <div class="form-group">
+=======
+                                <div class="form-group text-left">
+>>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412
                                     {!! Form::label('treatmenttype', 'Tipo de tratamento:') !!}
                                     {!! Form::text('treatmenttype', $utente->treatmenttype, ['class'=> 'form-control',
                                     'disabled' => true]) !!}
@@ -248,4 +271,12 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         @endsection
+=======
+
+    </div>
+
+
+    @endsection
+>>>>>>> 4800df733046a592af23f57d228d4d4ff9b03412

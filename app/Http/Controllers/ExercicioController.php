@@ -100,4 +100,12 @@ class ExercicioController extends Controller
         $exercicio = Exercicio::findOrFail($id);
         $exercicio->delete();
     }
+
+    /**
+     * Página de Exercícios
+     */
+    public function pageExercicio()
+    {
+        return view('exercicio/pageExercicio');
+    }
 }
