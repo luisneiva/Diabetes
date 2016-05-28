@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-
-use App\Utente;
-use App\Medico;
-use App\RegistoDiario;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\RegistoDiario;
+use App\Utente;
+use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
 class UtenteController extends Controller

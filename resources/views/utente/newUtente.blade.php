@@ -72,7 +72,7 @@
 
                         <label for="treatmenttype">Treatment:</label>
 
-                        <input type="radio" class="" name="treatment" id="injection" value="injection" @if (old('treatmenttype') === 'injection') checked @endif >
+                        <input type="radio" class="" name="treatmenttype" id="injection" value="injection" @if (old('treatmenttype') === 'injection') checked @endif >
                         <label for="injection">injection</label>
 
                         <input type="radio" class="" name="treatmenttype" id="oral" value="oral" @if (old('treatementtype') === 'oral') checked @endif >
