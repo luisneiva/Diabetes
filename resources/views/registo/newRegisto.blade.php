@@ -65,6 +65,11 @@
    }
 </script>
 
+@if (Session::has('message'))
+    <div class="alert alert-danger">
+        {{Session::get('message')}}
+    </div>
+@endif
 
 <div class="container">
 <h1 class="text-center">Registo Diario</h1>

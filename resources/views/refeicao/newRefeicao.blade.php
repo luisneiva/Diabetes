@@ -91,7 +91,7 @@
     <div class="alert alert-danger">
         {{Session::get('message')}}
     </div>
-    @endif
+@endif
 
 <div class="container">
 <h1 class="text-center">Registo de Refeições</h1>

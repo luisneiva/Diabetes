@@ -175,9 +175,9 @@ console.log(utentes[i]);
     <h3>Gráfico com refeições e exercicio dos ultimos 5 dias</h3>
     <hr>
     <h4 class="col-md-3, text-center"> <b>Análise diária</b></h4>
-    <h5> Em {{ $alimError }} dias excedeu o limite de consumo de carboidratos </h5>
-    <h5> Em {{ $exercError }} dias excedeu o limite de gasto de carboidratos ao praticar exercicio </h5>
-    <h5> Em {{ $glicError }} dias excedeu o limite do nivel de glicose </h5>
+    <h5> {{ $alimError }} em 5 dias excedeu o limite de consumo de carboidratos </h5>
+    <h5> {{ $exercError }} em 5  dias excedeu o limite de gasto de carboidratos ao praticar exercicio </h5>
+    <h5> {{ $glicError }} em 5 dias excedeu o limite do nivel de glicose </h5>
     <hr>
     @if($glicError > 2)
         <h5>

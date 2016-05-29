@@ -4,6 +4,7 @@
 
 
 
+
 <div class="container">
     <h1 class="text-center">Registo de exercicio</h1>
 

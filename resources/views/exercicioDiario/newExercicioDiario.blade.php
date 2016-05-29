@@ -39,6 +39,11 @@ console.log(caloriasGastas);
 
 </script>
 
+@if (Session::has('message'))
+    <div class="alert alert-danger">
+        {{Session::get('message')}}
+    </div>
+@endif
 
 <div class="container">
 
@@ -74,7 +79,6 @@ console.log(caloriasGastas);
             </table>
         </div>
     </div>
-
 
 
   {!! Form::open(['route'=> ['exerDiario.store']]) !!}

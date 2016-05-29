@@ -65,7 +65,7 @@ class ExercicioDiarioController extends Controller
     {
         $exercicioDiario = ExercicioDiario::create(Input::all());
 
-        return redirect()->route('exerDiario.create');
+        return redirect()->route('exerDiario.create')->with('message', 'Exercicio registado com sucesso!');
     }
 
     /**

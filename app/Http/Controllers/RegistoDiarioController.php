@@ -45,7 +45,7 @@ class RegistoDiarioController extends Controller
     public function store(Request $request)
     {
          $registo = RegistoDiario::create(Input::all());
-        return redirect()->route('registo.create');
+        return redirect()->route('registo.create')->with('message', 'Registo criado com sucesso!');
     }
 
     /**

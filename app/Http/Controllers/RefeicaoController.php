@@ -14,6 +14,7 @@ use App\Alimento;
 use App\User;
 use App\RefAlimento;
 use App\RefBebida;
+use App\Utente;
 use Auth;
 use Carbon\Carbon;
 use Alert;
@@ -27,13 +28,14 @@ class RefeicaoController extends Controller
      */
     public function index()
     {
-        $actUser = Auth::user()->username;
+        $id = Auth::user()->id;
+        $utente = Utente::where('user_id','=', $id)->first();
         $refeicoes = Auth::user()->refeicoes()->orderBy('created_at', 'DESC')->take(5)->get();
         $alimentos = Alimento::get();
         $bebidas = Bebida::get();
 
 
-        return view('refeicao/listRefeicao', compact('refeicoes', 'actUser','bebidas', 'alimentos'));
+        return view('refeicao/listRefeicao', compact('refeicoes', 'actUser','bebidas', 'alimentos', 'utente'));
     }
 
     /**
@@ -110,7 +112,7 @@ class RefeicaoController extends Controller
             ]);
         }
 
-        return redirect()->route('refeicao.create');
+        return redirect()->route('refeicao.create')->with('msg', 'Refeicao registada com sucesso!');
     }
 
     /**

@@ -7,7 +7,7 @@
         <thead>
           <tr>
               <th data-field="id">Nome Utente</th>
-              <th data-field="name">DAta </th>
+              <th data-field="name">Data </th>
               <th data-field="name">Refeição </th>
               <th data-field="name">qtd_Alimento </th>
               <th data-field="id">Alimento</th>
@@ -22,7 +22,7 @@
             <tr class="line">
                 @if($refeicao->user_id == Auth::user()->id)
 
-                  <td class="col-md-3, text-center">{{ $actUser }}</td>
+                  <td class="col-md-3, text-center">{{ $utente->fullname }}</td>
 
                   <td class="col-md-3, text-center">{{ $refeicao->data }}</td>
 
@@ -30,10 +30,9 @@
 
                   <td class="col-md-2, text-center">{{ $refeicao->qtd_alimento }}</td>
 
-                  @foreach ($alimentos as $alimento)
-                    @if($alimento->id == $refeicao->alimento_id )
+                  @foreach ($refeicao->alimentos as $alimento)
                       <td class="col-md-3, text-center">{{ $alimento->nome }}</td>
-                    @endif
+                      dd($refeicao);
                   @endforeach
 
                   <td class="col-md-2, text-center">{{ $refeicao->qtd_bebida }}</td>
