@@ -61,11 +61,30 @@ class UtenteController extends Controller
      */
     public function show($id)
     {
+        $aux =0;
+        $alimError = 0;
+        $exercError = 0;
+        $exercSucess = 0;
+        $glicError = 0;
+
         $utente = Utente::findOrFail($id);
         $user = Auth::user()->id;
         $registos = RegistoDiario::where('user_id', $user)->orderBy('created_at', 'DESC')->take(5)->get();
 
-        return view('utente/showUtente', compact('utente', 'registos', 'user'));
+        foreach ($registos as $registo){
+            $aux = ($registo->total_carboidratos_ingeridos)- ($registo->carboidratos_gastos);
+            if($aux < 0)
+                $exercError ++;
+            if($aux > 0)
+                $exercSucess ++;
+            if($aux > 160)
+                $alimError ++;
+
+            if(($registo->glicose > 120) || ($registo->glicose <90))
+                $glicError ++;
+
+        }
+        return view('utente/showUtente', compact('utente', 'registos', 'user', 'alimError', 'exercError', 'glicError', 'exercSucess'));
     }
 
     /**
