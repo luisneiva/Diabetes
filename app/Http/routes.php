@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Registo diario
     Route::resource('registo', 'RegistoDiarioController');
 
-     // Exercicio diario
+    // Exercicio diario
     Route::resource('exerDiario', 'ExercicioDiarioController');
 
     //Graficos
@@ -64,16 +64,16 @@ Route::group(['middleware' => 'auth'], function () {
     // funcionalidades dos utentes
     Route::group(['middleware' => 'newUtente'], function () {
 
-        // Utente
-        Route::resource('utente', 'UtenteController', ['except' => 'index']);
+    // Utente
+    Route::resource('utente', 'UtenteController', ['except' => 'index']);
 
-        // Registo diario
-        Route::get('dicas', 'UtenteController@dicas');
+    // Registo diario
+    Route::get('dicas', 'UtenteController@dicas');
 
-        // Refeicao
-        Route::resource('refeicao', 'RefeicaoController');
+    // Refeicao
+    Route::resource('refeicao', 'RefeicaoController');
 
-        // AQUI
+    // AQUI
     });
 
     //Página de refeições do utente
