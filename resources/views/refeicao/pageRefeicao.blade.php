@@ -11,12 +11,18 @@
             @if(Auth::user()->type === 0)
             <a type="button" class="btn btn-primary" href="{{ url('/refeicao/create') }}">Inserir Refeição</a>
             <a type="button" class="btn btn-primary" href="{{ url('/refeicao') }}">Todas as Refeições</a>
+            <a type="button" class="btn btn-primary" >Chat</a>
+            <a type="button" class="btn btn-primary" href="{{ url('/notifica') }}">Notificações</a>
+            @else
+            <a type="button" class="btn btn-primary" href="{{ url('/notifica?utente=' . App\Utente::find(Request::get('utente'))->user->id) }}">Notificações</a>
             @endif
+
+            <a type="button" class="btn btn-primary" href="{{ url('/sugere') }}">Sugestões</a>
             <a type="button" class="btn btn-success" href="/home">Menu Principal</a>
 
             <br><br><br>
 
-            <h2>Inserir gráfico apenas com o valor das calorias a cada refeição (ultimos 5 dias)  </h2>
+            <!--<h2>Inserir gráfico apenas com o valor das calorias a cada refeição (ultimos 5 dias)  </h2> -->
         </div>
 
         {{-- lista de refeicoes --}}

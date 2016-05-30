@@ -246,8 +246,12 @@
         });
     </script>
     <hr>
+
+
+
+
     <!-- Adicionar Notificação-->
-    <a href="{{ route('notifica.show', [$id]) }}" class="btn btn-success">Enviar Notificação</a>
+    <a href="{{ url('/notifica/create?utente=' . $id) }}" class="btn btn-success">Enviar Notificação</a>
      <!-- Adicionar Sugestão-->
     <a href="{{ route('sugere.show', [$id]) }}" class="btn btn-primary">Enviar Sugestão</a>
 

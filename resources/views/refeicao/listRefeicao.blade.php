@@ -30,43 +30,30 @@
 
                   <td class="col-md-2, text-center">{{ $refeicao->qtd_alimento }}</td>
 
-                  @foreach ($refeicao->alimentos as $alimento)
-                      <td class="col-md-3, text-center">{{ $alimento->nome }}</td>
-                      dd($refeicao);
-                  @endforeach
+                  <td class="col-md-3, text-center">
+
+                      @foreach ($refeicao->alimentos as $alimento)
+                        <li>{{ $alimento->alimento->nome }} X {{ $alimento->qtd }}</li>
+                    @endforeach
+
+                  </td>
 
                   <td class="col-md-2, text-center">{{ $refeicao->qtd_bebida }}</td>
 
-                  @foreach ($bebidas as $bebida)
-                    @if($bebida->id == $refeicao->bebida_id )
-                      <td class="col-md-3, text-center">{{ $bebida->nome }}</td>
-                    @endif
-                  @endforeach
-
-                  <td class="col-md-2, text-center">{{ $refeicao->total_carboidratos }}</td>
-
-                  <td>
-
-
-
-                      {!! Form::open(['route' => array('refeicao.destroy', $refeicao->id), 'method' => 'delete']) !!}
-                        <!-- Show -->
-                        <a href="{{ route('refeicao.show', [$refeicao->id]) }}" class="btn btn-primary">Ver</a>
-
-                        <!-- Edit -->
-                        <a href="{{ route('refeicao.edit', [$refeicao->id]) }}" class="btn btn-warning">Editar</a>
-                        <!-- Add Risco -->
-                        <a href="{{ route('refeicao.create', [$refeicao->id]) }}" class="btn btn-success">Add refeicao</a>
-
-                        <button type="submit" class="btn btn-danger">Remover</button>
-                      {!! Form::close() !!}
+                    <td class="col-md-3, text-center">
+                      <ul>
+                        @foreach ($refeicao->bebidas as $bebida)
+                          <li>{{ $bebida->bebida->nome }} X {{ $bebida->qtd }}</li>
+                        @endforeach
+                      </ul>
+                    </td>
                   </td>
+                  <td @if($refeicao->total_carboidratos > 160) style="background-color: #e74c3c; color: white;"@endif>{{ $refeicao->total_carboidratos }}</td>
                 @endif
-
             </tr>
-
           @endforeach
+          <td> <a class="btn btn-primary btn-block" href="{{ url('/pageRefeicao') }}">Voltar</a></td>
         </tbody>
-      </table>
+
 </div>
 @endsection

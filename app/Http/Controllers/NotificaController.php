@@ -8,7 +8,12 @@ use App\Http\Requests;
 
 use Illuminate\Support\Facades\Input;
 
+use Auth;
+
+use App\User;
+use App\Utente;
 use App\Notifica;
+
 
 class NotificaController extends Controller
 {
@@ -17,9 +22,18 @@ class NotificaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // caso o id do utente não seja especificado usa o login
+        if (!$request->has('utente') || $request->get('utente') === '') {
+            $user_id = Auth::user()->id;
+        } else {
+            $user_id = $request->get('utente');
+        }
+
+        $notificas = User::find($user_id)->notificacoes;
+
+        return view('notifica/listNotifica', compact('notificas'));
     }
 
     /**
@@ -29,7 +43,7 @@ class NotificaController extends Controller
      */
     public function create()
     {
-
+        return view('notifica/newNotifica');
     }
 
     /**

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Carbon\Carbon;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -68,5 +70,18 @@ class User extends Authenticatable
         return $this->utentes()->get()->map(function ($item, $key) {
             return $item->user_id;
         })->all();
+    }
+
+    public function notificacoes()
+    {
+        return $this->hasMany(Notifica::class);
+    }
+
+    public function exerciceInTheLast5Days()
+    {
+        return $this->exercicios()
+            ->whereBetween('created_at', [Carbon::now()->subWeek(), Carbon::now()])
+            ->orderBy('created_at', 'DESC')
+            ->get();
     }
 }

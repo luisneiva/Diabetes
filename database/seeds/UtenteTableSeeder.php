@@ -17,10 +17,10 @@ class UtenteTableSeeder extends Seeder {
        Model::unguard();
 
          DB::table('utentes')->insert([
-            'user_id' => '2',
-            'fullname' => 'Antonio MAgalhaes',
+            'user_id' => 4,
+            'fullname' => 'uJoao carvalho',
             'gender' => 'm',
-            'medico_id' => null,
+            'medico_id' => 1,
             'type' => 'type1',
             'treatmenttype' => 'oral',
             'weight' => 78,
@@ -29,10 +29,10 @@ class UtenteTableSeeder extends Seeder {
         ]);
 
          DB::table('utentes')->insert([
-            'user_id' => 3,
-            'fullname' => 'jose',
+            'user_id' => 5,
+            'fullname' => 'ujose freitas',
             'gender' => 'm',
-            'medico_id' => null,
+            'medico_id' => 2,
             'type' => 'type2',
             'treatmenttype' => 'injection',
             'weight' => 89,
@@ -41,10 +41,10 @@ class UtenteTableSeeder extends Seeder {
         ]);
 
          DB::table('utentes')->insert([
-            'user_id' => 4,
-            'fullname' => 'marinho magalhaes',
+            'user_id' => 6,
+            'fullname' => 'uMarinho magalhaes',
             'gender' => 'm',
-            'medico_id' => null,
+            'medico_id' => 3,
             'type' => 'type2',
             'treatmenttype' => 'injection',
             'weight' => 90,
@@ -53,10 +53,10 @@ class UtenteTableSeeder extends Seeder {
         ]);
 
          DB::table('utentes')->insert([
-            'user_id' => 5,
-            'fullname' => 'maria',
+            'user_id' => 7,
+            'fullname' => 'uMaria teixeira',
             'gender' => 'f',
-            'medico_id' => null,
+            'medico_id' => 2,
             'type' => 'type1',
             'treatmenttype' => 'oral',
             'weight' => 53,

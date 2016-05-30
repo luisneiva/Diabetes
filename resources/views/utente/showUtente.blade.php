@@ -72,8 +72,11 @@ console.log(utentes[i]);
         <a type="button" class="btn btn-default" href="{{ url('/dicas') }}">Dicas </a>
         <a type="button" class="btn btn-primary" href="{{ '/pageRefeicao' }}">Refeições</a>
         <a type="button" class="btn btn-info" href="{{ '/exerDiario/create' }}">Exercício</a>
-        <button type="button" class="btn btn-success">Chat</button>
     </div>
+
+    @if($showExercisseAlert)
+    <div class="alert alert-danger" style="margin-top: 10px">AVISO!!! Tenha em consideração que não fez exercicio nos ultimos cinco dias!</div>
+    @endif
 
     <div class="text-center" style="margin-top: 20px">
         <p>Utente: <span id="nome"></span></p>
@@ -199,7 +202,6 @@ console.log(utentes[i]);
         <h5>
             <span style="background-color: #16a085; color: white;"> Deve  reduzir ao consumo de carboidratos</span>
         </h5>
-     @
        <!-- faz exefcicio e não come em demasia -->
       @elseif(($exercError >= 2) && ($alimError <2))
         <h5>

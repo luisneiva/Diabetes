@@ -52,7 +52,7 @@
     carboidratosGas = 4 * caloriasGas;
     console.log(caloriasGas);
     console.log(carboidratosGas);
-    proteinasGas = 4 * caloriasGas;
+    proteinasGas = 5 * caloriasGas;
 
     }
 

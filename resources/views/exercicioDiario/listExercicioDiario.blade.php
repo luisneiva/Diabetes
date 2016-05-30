@@ -35,22 +35,22 @@
 
 
 
-                      {!! Form::open(['route' => array('exerDiario.destroy', $exerDiario->id), 'method' => 'delete']) !!}
-                        <!-- Show -->
-                        <a href="{{ route('exerDiario.show', [$exerDiario->id]) }}" class="btn btn-primary">Ver</a>
 
-                        <!-- Edit -->
-                        <a href="{{ route('exerDiario.edit', [$exerDiario->id]) }}" class="btn btn-warning">Editar</a>
-                        <!-- Add Risco -->
-                        <a href="{{ route('exerDiario.create', [$exerDiario->id]) }}" class="btn btn-success">Add refeicao</a>
 
-                        <button type="submit" class="btn btn-danger">Remover</button>
-                      {!! Form::close() !!}
+
+
                   </td>
 
             </tr>
 
           @endforeach
+  <td>
+    <div class="row">
+        <div class="col-md-12">
+          <a class="btn btn-primary btn-block" href="{{ url('/home') }}">Voltar</a>
+        </div>
+    </div>
+  </td>
         </tbody>
       </table>
 </div>

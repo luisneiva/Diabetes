@@ -61,6 +61,13 @@ class UtenteController extends Controller
      */
     public function show($id)
     {
+        // verifica se é necessario notificar o utente por não fazer exercicio à
+        // mais de 5 dias
+
+        $showExercisseAlert = Auth::user()->exerciceInTheLast5Days()->count() === 0;
+
+        // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+
         $aux =0;
         $alimError = 0;
         $exercError = 0;
@@ -84,7 +91,7 @@ class UtenteController extends Controller
                 $glicError ++;
 
         }
-        return view('utente/showUtente', compact('utente', 'registos', 'user', 'alimError', 'exercError', 'glicError', 'exercSucess'));
+        return view('utente/showUtente', compact('utente', 'registos', 'user', 'alimError', 'exercError', 'glicError', 'exercSucess', 'showExercisseAlert'));
     }
 
     /**

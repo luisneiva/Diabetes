@@ -44,8 +44,16 @@ class RegistoDiarioController extends Controller
      */
     public function store(Request $request)
     {
-         $registo = RegistoDiario::create(Input::all());
-        return redirect()->route('registo.create')->with('message', 'Registo criado com sucesso!');
+        $registo = RegistoDiario::create(Input::all());
+        //dd(intval($registo->glicose));
+        if(intval($registo->glicose) > 120 )
+           return redirect()->route('registo.create')->with('message', 'Registo criado com sucesso!  cuidado !!! valor inserido fora do normal');
+        if(intval($registo->glicose) <90 ){
+            return redirect()->route('registo.create')->with('message', 'Registo criado com sucesso! cuidado !!! valor inserido fora do normal');
+        }else{
+            return redirect()->route('registo.create')->with('message', 'Registo criado com sucesso!');
+
+    }
     }
 
     /**

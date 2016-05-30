@@ -50,5 +50,31 @@
               'created_at' => '2016-05-24 15:51:03',
               'updated_at' => '2016-05-24 15:51:03'
           ]);
+
+              DB::table('bebidas')->insert([
+              'nome' => 'agua',
+              'calorias' => 0,
+              'carboidratos' => 0,
+              'proteinas' => 0,
+              'created_at' => '2016-05-24 15:51:03',
+              'updated_at' => '2016-05-24 15:51:03'
+          ]);
+
+               DB::table('bebidas')->insert([
+              'nome' => 'CocaCola',
+              'calorias' => 84,
+              'carboidratos' => 37,
+              'proteinas' => 0,
+              'created_at' => '2016-05-24 15:51:03',
+              'updated_at' => '2016-05-24 15:51:03'
+          ]);
+               DB::table('bebidas')->insert([
+              'nome' => 'sumo',
+              'calorias' => 43,
+              'carboidratos' => 9.8,
+              'proteinas' => 0.5,
+              'created_at' => '2016-05-24 15:51:03',
+              'updated_at' => '2016-05-24 15:51:03'
+          ]);
       }
   }
