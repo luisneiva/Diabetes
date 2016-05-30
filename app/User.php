@@ -36,7 +36,7 @@ class User extends Authenticatable
     public function getShortNameAttribute() {
         // quando o utente ainda não está registado deve ser devolvido o email, uma vez
         // que ainda não temos o fullname
-        if ($this->utente === null) {
+        if ($this->utente == null) {
             return  $this->email;
         }
 

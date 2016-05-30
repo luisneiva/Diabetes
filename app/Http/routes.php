@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
         if ($user->type == 1) { // medico
             return redirect()->route('medico.show', $user->id);
         } else { // utente
-            if ($user->utente === null) { return redirect()->route('utente.create'); }
+            if ($user->utente == null) { return redirect()->route('utente.create'); }
 
             return redirect()->route('utente.show', $user->utente->id);
         }

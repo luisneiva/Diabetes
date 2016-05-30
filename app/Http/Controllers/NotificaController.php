@@ -25,7 +25,7 @@ class NotificaController extends Controller
     public function index(Request $request)
     {
         // caso o id do utente não seja especificado usa o login
-        if (!$request->has('utente') || $request->get('utente') === '') {
+        if (!$request->has('utente') || $request->get('utente') == '') {
             $user_id = Auth::user()->id;
         } else {
             $user_id = $request->get('utente');

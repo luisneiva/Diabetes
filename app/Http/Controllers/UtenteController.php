@@ -64,7 +64,7 @@ class UtenteController extends Controller
         // verifica se é necessario notificar o utente por não fazer exercicio à
         // mais de 5 dias
 
-        $showExercisseAlert = Auth::user()->exerciceInTheLast5Days()->count() === 0;
+        $showExercisseAlert = Auth::user()->exerciceInTheLast5Days()->count() == 0;
 
         // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 

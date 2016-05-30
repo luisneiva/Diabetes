@@ -202,9 +202,9 @@ class RefeicaoController extends Controller
         // get current user
         $user = Auth::user();
 
-        if ($user->type === 1 && in_array($request->get('utente'), $user->getUtentesIds())) { // medico
+        if ($user->type == 1 && in_array($request->get('utente'), $user->getUtentesIds())) { // medico
             $user = User::find($request->get('utente'));
-        } else if ($user->type === 1 && !in_array($request->get('utente'), $user->getUtentesIds())) { // medico, mas não deste utente
+        } else if ($user->type == 1 && !in_array($request->get('utente'), $user->getUtentesIds())) { // medico, mas não deste utente
             return redirect()->back();
         }
 
