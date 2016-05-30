@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class ExercicioDiarios extends Seeder
 {
@@ -11,8 +12,6 @@ class ExercicioDiarios extends Seeder
      */
     public function run()
     {
-
-
             Model::unguard();
 
             DB::table('exercicio_diarios')->insert([
