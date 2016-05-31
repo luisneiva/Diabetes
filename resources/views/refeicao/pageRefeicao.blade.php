@@ -7,17 +7,19 @@
 
     <div class="container">
         <div class="text-center">
+
             <h2>Orientação</h2>
             @if(Auth::user()->type === 0)
             <a type="button" class="btn btn-primary" href="{{ url('/refeicao/create') }}">Inserir Refeição</a>
             <a type="button" class="btn btn-primary" href="{{ url('/refeicao') }}">Todas as Refeições</a>
             <a type="button" class="btn btn-primary" >Chat</a>
             <a type="button" class="btn btn-primary" href="{{ url('/notifica') }}">Notificações</a>
+            <a type="button" class="btn btn-primary" href="{{ url('/registo') }}" >Registos</a>
             @else
             <a type="button" class="btn btn-primary" href="{{ url('/notifica?utente=' . App\Utente::find(Request::get('utente'))->user->id) }}">Notificações</a>
+            <a type="button" class="btn btn-primary" href="{{ url('/registo?utente=' . App\Utente::find(Request::get('utente'))->user->id) }}" >Registos</a>
             @endif
 
-            <a type="button" class="btn btn-primary" href="{{ url('/sugere') }}">Sugestões</a>
             <a type="button" class="btn btn-success" href="/home">Menu Principal</a>
 
             <br><br><br>

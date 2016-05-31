@@ -72,6 +72,7 @@ console.log(utentes[i]);
         <a type="button" class="btn btn-default" href="{{ url('/dicas') }}">Dicas </a>
         <a type="button" class="btn btn-primary" href="{{ '/pageRefeicao' }}">Refeições</a>
         <a type="button" class="btn btn-info" href="{{ '/exerDiario/create' }}">Exercício</a>
+        <a type="button" class="btn btn-primary" href="{{ url('/registo/create') }}">Inser Registos</a>
     </div>
 
     @if($showExercisseAlert)
