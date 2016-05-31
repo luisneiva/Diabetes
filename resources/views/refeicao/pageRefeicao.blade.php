@@ -16,8 +16,8 @@
             <a type="button" class="btn btn-primary" href="{{ url('/notifica') }}">Notificações</a>
             <a type="button" class="btn btn-primary" href="{{ url('/registo') }}" >Registos</a>
             @else
-            <a type="button" class="btn btn-primary" href="{{ url('/notifica?utente=' . App\Utente::find(Request::get('utente'))->user->id) }}">Notificações</a>
-            <a type="button" class="btn btn-primary" href="{{ url('/registo?utente=' . App\Utente::find(Request::get('utente'))->user->id) }}" >Registos</a>
+            <a type="button" class="btn btn-primary" href="{{ url('/notifica?utente=' . Request::get('utente')) }}">Notificações</a>
+            <a type="button" class="btn btn-primary" href="{{ url('/registo?utente=' . Request::get('utente')) }}" >Registos</a>
             @endif
 
             <a type="button" class="btn btn-success" href="/home">Menu Principal</a>

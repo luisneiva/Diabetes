@@ -18,6 +18,18 @@ Route::get('/', function () {
 // funcionalidades  admin
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/home', function () {
+        $user = Auth::user();
+
+        if ($user->type == 1) { // medico
+            return redirect()->route('medico.show', $user->id);
+        } else { // utente
+            if ($user->utente == null) { return redirect()->route('utente.create'); }
+
+            return redirect()->route('utente.show', $user->utente->id);
+        }
+    });
+
     // Refeicao
     Route::resource('refeicao', 'RefeicaoController');
 
@@ -39,68 +51,43 @@ Route::group(['middleware' => 'auth'], function () {
     //Grafico do utente
     Route::resource('grafico', 'GraficoController');
 
-    //Utente
-    Route::resource('utente', 'UtenteController');
+    // Bebida
+    Route::resource('bebida', 'BebidaController');
 
-    Route::get('/home', function () {
-        $user = Auth::user();
+    // Alimento
+    Route::resource('alimento', 'AlimentoController');
 
-        if ($user->type == 1) { // medico
-            return redirect()->route('medico.show', $user->id);
-        } else { // utente
-            if ($user->utente == null) { return redirect()->route('utente.create'); }
+    // Exercicio
+    Route::resource('exercicio', 'ExercicioController');
 
-            return redirect()->route('utente.show', $user->utente->id);
-        }
-    });
-
-    Route::group(['middleware' => 'isMedico'], function () {
-        Route::resource('utente', 'UtenteController');
-
-        //Grafico do utente
-        Route::resource('grafico', 'GraficoController');
-    });
-
-    // funcionalidades dos utentes
-    Route::group(['middleware' => 'newUtente'], function () {
-
-    // Utente
-    Route::resource('utente', 'UtenteController', ['except' => 'index']);
-
-    // Registo diario
-    Route::get('dicas', 'UtenteController@dicas');
-
-    // Refeicao
-    Route::resource('refeicao', 'RefeicaoController');
-
-    // AQUI
-    });
+    // Medico
+    Route::resource('medico', 'MedicoController');
 
     //Página de refeições do utente
     Route::get('pageRefeicao', 'RefeicaoController@pageRefeicao');
 
+    // Utente
+    Route::resource('utente', 'UtenteController');
+
+    Route::group(['middleware' => 'isMedico'], function () {
+
+        //Route::resource('utente', 'UtenteController');
+
+    });
+
     // permite submeter o formulario do registo do utente (initial)
-    Route::resource('utente', 'UtenteController', ['only' => 'store']);
+    // Route::resource('utente', 'UtenteController', ['only' => 'store']);
 
+    // funcionalidades dos utentes
+    Route::group(['middleware' => 'newUtente'], function () {
 
+        // Registo diario
+        Route::get('dicas', 'UtenteController@dicas');
+
+        // Refeicao
+        Route::resource('refeicao', 'RefeicaoController');
+    });
 
 });
 
-// Medico
-Route::resource('medico', 'MedicoController');
-
-// Bebida
-Route::resource('bebida', 'BebidaController');
-
-// Alimento
-Route::resource('alimento', 'AlimentoController');
-
-// Exercicio
-Route::resource('exercicio', 'ExercicioController');
-
-// Medico
-Route::resource('medico', 'MedicoController');
-
 Route::auth();
-
-

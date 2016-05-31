@@ -28,7 +28,7 @@ class RegistoDiario extends Model
             return $item->user_id;
         })->all();
 
-        return RegistoDiario::select(DB::raw('count(*) as count, user_id, total_carboidratos_ingeridos, carboidratos_gastos, glicose, created_at'))
+        $results = RegistoDiario::select(DB::raw('count(*) as count, user_id, total_carboidratos_ingeridos, carboidratos_gastos, glicose, created_at'))
         ->whereBetween('created_at', [Carbon::now()->subWeek(), Carbon::now()])
         ->where('glicose', '>', 120)
         ->orWhere(function ($query) {
@@ -40,5 +40,9 @@ class RegistoDiario extends Model
         ->whereIn('user_id', $utentesIds)
         ->groupBy('user_id')
         ->get();
+
+        return $results->filter(function ($item, $key) use ($utentesIds) {
+            return in_array($item->user_id, $utentesIds);
+        })->all();
     }
 }

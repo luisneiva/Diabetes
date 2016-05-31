@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Illuminate\Support\Facades\Input;
-
-use App\RegistoDiario;
+use Auth;
+use App\Utente;
 use App\Refeicao;
+use App\RegistoDiario;
 
 class RegistoDiarioController extends Controller
 {
@@ -18,10 +19,16 @@ class RegistoDiarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $registos = RegistoDiario::get();
+        // obtem o utente
+        if ($request->has('utente') && $request->get('utente') != '') {
+            $user_id = $request->get('utente');
+        } else {
+            $user_id = Auth::user()->id;
+        }
 
+        $registos = RegistoDiario::where('user_id', $user_id)->get();
         return view('registo/listRegistos', compact('registos'));
     }
 
@@ -65,6 +72,7 @@ class RegistoDiarioController extends Controller
     public function show($id)
     {
        $registo = RegistoDiario::findOrFail($id);
+
         return view('registo/showRegisto', compact('registo'));
     }
 
