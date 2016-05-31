@@ -15,7 +15,7 @@
 
 
      function normalizeValue (value) {
-    if (isNaN(value) || value === '' || value < 1) { return 0 }
+    if (isNaN(value) || value == '' || value < 1) { return 0 }
 
     return parseInt(value)
   }
@@ -24,24 +24,24 @@
 
 
             for (var i = 0; i < utentes.length; i++) {
-                if(utentes[i].user_id === user)  {
+                if(utentes[i].user_id == user)  {
 
                           curUser = utentes[i].fullname;
                           sexo = utentes[i].gender;
-                          if(sexo === "f"){
+                          if(sexo == "f"){
                             sexo = "Feminino"
                         }else{
                             sexo = "Masculino"
                         }
                           tipo = utentes[i].type;
-                           if(tipo === "type1"){
+                           if(tipo == "type1"){
                             tipo = "Diabetes Tipo I"
                         }else{
                             tipo = "Diabetes tipo II"
                         }
                           tratamento = utentes[i].treatmenttype;
 
-                           if(tratamento === "oral"){
+                           if(tratamento == "oral"){
                             tratamento = "Oral"
                         }else{
                             tratamento = "Insulina injectada"

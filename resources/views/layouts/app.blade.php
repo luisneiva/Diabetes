@@ -63,7 +63,7 @@
                             </li>
                             @endif
 
-                            @if(Auth::user()->type === 1)
+                            @if(Auth::user()->type == 1)
                             <li><a href="{{ url('/medico') }}"><i class="fa fa-btn fa-sign-out"></i>Minha conta</a></li>
                             @endif
 
